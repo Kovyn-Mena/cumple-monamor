@@ -1,0 +1,128 @@
+﻿/* ==========================================================================
+   INTRO PHOTO RAIN (Lluvia de Recuerdos al Entrar)
+   ========================================================================== */
+.photo-rain-layer {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100dvh;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 90;
+  display: block;
+}
+
+.photo-rain-item {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  opacity: 0;
+  transform: translate3d(0, 0, 0);
+  will-change: transform, opacity;
+  animation: photoRainDrift var(--duration, 2.5s) cubic-bezier(0.25, 1, 0.5, 1) var(--delay, 0s) forwards;
+}
+
+/* Tarjeta / Marco de la fotografía */
+.photo-rain-card {
+  display: block;
+  width: var(--photo-size, 82px);
+  background: rgba(18, 10, 28, 0.92);
+  border: 1px solid rgba(192, 132, 252, 0.35);
+  border-radius: 8px;
+  padding: 4px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7), 0 0 16px rgba(168, 85, 247, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-sizing: border-box;
+}
+
+.photo-rain-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+  background: #090510;
+}
+
+/* Fallback si no hay imagen física todavía */
+.photo-rain-placeholder {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: radial-gradient(circle at 50% 50%, #24113d 0%, #0c0617 100%);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  color: #c4b5db;
+}
+
+.placeholder-icon {
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
+
+.placeholder-tag {
+  font-family: var(--font-title, serif);
+  font-size: 0.55rem;
+  letter-spacing: 0.08em;
+  color: #a496b8;
+  text-transform: uppercase;
+}
+
+/* Animación de caída / flotación suave */
+@keyframes photoRainDrift {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) rotate(var(--rot-start, -6deg)) scale(var(--scale, 0.9));
+  }
+  18% {
+    opacity: 0.96;
+  }
+  75% {
+    opacity: 0.96;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(var(--fall-dist, 140px)) rotate(var(--rot-end, 6deg)) scale(var(--scale, 1));
+  }
+}
+
+/* Modo de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  .photo-rain-item {
+    animation: photoRainFade 1.2s ease forwards !important;
+  }
+
+  @keyframes photoRainFade {
+    0% {
+      opacity: 0;
+      transform: none !important;
+    }
+    30%, 70% {
+      opacity: 0.95;
+      transform: none !important;
+    }
+    100% {
+      opacity: 0;
+      transform: none !important;
+    }
+  }
+}
+
+/* Adaptación responsive para escritorio */
+@media (min-width: 768px) {
+  .photo-rain-card {
+    width: calc(var(--photo-size, 82px) * 1.3);
+    padding: 5px;
+  }
+  .placeholder-icon {
+    font-size: 1.3rem;
+  }
+  .placeholder-tag {
+    font-size: 0.65rem;
+  }
+}

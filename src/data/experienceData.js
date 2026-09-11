@@ -1,4 +1,4 @@
-﻿/**
+/**
  * ============================================================================
  * EXPERIENCE DATA (Contenido Editable y Narrativa del Proyecto)
  * ============================================================================
@@ -9,13 +9,33 @@
 export const experienceData = {
   // PANTALLA 1: INICIO / ENTRADA
   screen01: {
-    badge: "10 • SEPTIEMBRE",
+    badge: "27 • SEPTIEMBRE",
     pretitle: "Para ti.",
     name: "MONAMOR",
     subtitle: "Tengo algo que enseñarte.",
     buttonText: "ENTRAR",
     tapHint: "Toca para comenzar"
   },
+
+  // LLUVIA DE FOTOGRAFÍAS (Transición al pulsar ENTRAR)
+  // Coloca tus imágenes .webp en public/images/intro/ y agrega sus rutas aquí.
+  introPhotoRain: [
+    "./images/intro/paula-01.webp",
+    "./images/intro/paula-02.webp",
+    "./images/intro/paula-03.webp",
+    "./images/intro/paula-04.webp",
+    "./images/intro/paula-05.webp",
+    "./images/intro/paula-06.webp",
+    "./images/intro/paula-07.webp",
+    "./images/intro/paula-08.webp",
+    "./images/intro/paula-09.webp",
+    "./images/intro/paula-10.webp",
+    "./images/intro/paula-11.webp",
+    "./images/intro/paula-12.webp",
+    "./images/intro/paula-13.webp",
+    "./images/intro/paula-14.webp",
+    "./images/intro/paula-15.webp"
+  ],
 
   // PANTALLA 2: BIENVENIDA
   screen02: {
