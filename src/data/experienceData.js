@@ -1,4 +1,4 @@
-﻿/**
+/**
  * ============================================================================
  * EXPERIENCE DATA (Contenido Editable del Proyecto)
  * ============================================================================
@@ -104,24 +104,25 @@ export const experienceData = {
         number: "01",
         teaser: "Toca para descubrir",
         revealedTitle: "Tu forma de iluminar",
-        revealedText: "[Aquí irá una cosa que amo de ti: por ejemplo, tu risa o tu mirada.]"
+        revealedText: "[Aquí irá una cosa que amo de ti: por ejemplo, tu risa, tu bondad o tu forma de mirar.]"
       },
       {
         id: 2,
         number: "02",
         teaser: "Toca para descubrir",
         revealedTitle: "Tu complicidad",
-        revealedText: "[Aquí irá una segunda cosa que amo de ti.]"
+        revealedText: "[Aquí irá una segunda cosa que amo de ti: cómo entendemos todo sin decir una palabra.]"
       },
       {
         id: 3,
         number: "03",
         teaser: "Toca para descubrir",
         revealedTitle: "Nuestros momentos de paz",
-        revealedText: "[Aquí irá una tercera cosa que amo de ti.]"
+        revealedText: "[Aquí irá una tercera cosa que amo de ti: la calma que encuentro cuando estoy a tu lado.]"
       }
     ],
-    buttonText: "SIGUIENTE RETO"
+    buttonText: "SIGUIENTE RETO",
+    backText: "Volver a la galería"
   },
 
   // PANTALLA 6: MINI-JUEGO / QUIZ
@@ -134,13 +135,13 @@ export const experienceData = {
         id: 1,
         question: "¿Dónde ocurrió [MOMENTO ESPECIAL 1]?",
         options: [
-          "[Opción A: Lugar incorrecto 1]",
+          "[Opción A: Lugar incorrecto]",
           "[Opción B: Respuesta correcta]",
-          "[Opción C: Lugar incorrecto 2]"
+          "[Opción C: Otro lugar incorrecto]"
         ],
         correctIndex: 1,
         successMessage: "Sabía que te acordabas. ♡",
-        failMessage: "Casi... pero estuviste cerca."
+        failMessage: "Casi... pero estuviste muy cerca."
       },
       {
         id: 2,
@@ -152,11 +153,24 @@ export const experienceData = {
         ],
         correctIndex: 0,
         successMessage: "¡Exacto! Memoria intacta.",
-        failMessage: "Por poco... pero cuenta el intento."
+        failMessage: "Por poco... pero cuenta la intención."
+      },
+      {
+        id: 3,
+        question: "¿Quién [HIZO / DIJO] esto primero?",
+        options: [
+          "[Opción A: Paula]",
+          "[Opción B: Yo]",
+          "[Opción C: Los dos al mismo tiempo]"
+        ],
+        correctIndex: 2,
+        successMessage: "Inconfundible. Lo sabíamos los dos.",
+        failMessage: "Casi, pero fue un empate perfecto."
       }
     ],
     completionMessage: "Creo que conoces bastante bien nuestra historia.",
-    buttonText: "CONTINUAR"
+    buttonText: "CONTINUAR",
+    backText: "Volver a cosas que amo"
   },
 
   // PANTALLA 7: SECCIÓN SECRETA
@@ -165,8 +179,9 @@ export const experienceData = {
     hintText: "Creo que todavía falta algo escondido por aquí.",
     secretTrigger: "✦",
     discoveredTitle: "Ok, sí. Esto estaba escondido a propósito.",
-    surpriseContent: "[Aquí irá la sorpresa: una foto oculta, un audio o un mensaje especial.]",
-    buttonText: "IR A LA CARTA"
+    surpriseContent: "[Aquí irá la sorpresa: una foto oculta, un audio, una promesa o un mensaje especial.]",
+    buttonText: "IR A LA CARTA",
+    backText: "Volver al quiz"
   },
 
   // PANTALLA 8: CARTA

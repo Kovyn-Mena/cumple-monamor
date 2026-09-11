@@ -69,10 +69,10 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 460px;
+  max-width: 480px;
   min-height: 100dvh;
   margin: 0 auto;
-  padding: 36px 24px;
+  padding: 36px 20px 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -124,6 +124,35 @@
   margin-bottom: 24px;
 }
 
+.section-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.section-title {
+  font-family: var(--font-title);
+  font-size: clamp(1.55rem, 6.2vw, 2.05rem);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: #ffffff;
+  margin: 0;
+  text-transform: uppercase;
+  line-height: 1.25;
+}
+
+.section-subtitle {
+  font-size: 0.88rem;
+  color: #a496b8;
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  max-width: 320px;
+  margin: 0;
+}
+
 .title-block {
   display: flex;
   flex-direction: column;
@@ -158,7 +187,7 @@
   width: 40px;
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(192, 132, 252, 0.45), transparent);
-  margin: 6px auto;
+  margin: 8px auto;
 }
 
 .poetic-quote {
@@ -183,6 +212,15 @@
   gap: 14px;
 }
 
+.section-actions {
+  margin-top: 32px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
 /* ==========================================================================
    BOTONES SOBRIOS / GÓTICOS
    ========================================================================== */
@@ -192,16 +230,16 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 250px;
-  padding: 16px 32px;
+  max-width: 260px;
+  padding: 16px 28px;
   background: rgba(20, 12, 32, 0.85);
   border: 1px solid rgba(192, 132, 252, 0.35);
   border-radius: var(--radius-full);
   color: #f7f4fb;
   font-family: var(--font-title);
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   font-weight: 600;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   cursor: pointer;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45), 0 0 16px rgba(168, 85, 247, 0.12);
@@ -210,7 +248,6 @@
   -webkit-user-select: none;
 }
 
-/* Respuesta táctil móvil para iPhone */
 .btn-gothic-primary:active {
   transform: scale(0.97);
   background: rgba(36, 18, 58, 0.95);
@@ -246,6 +283,7 @@
   color: #6e6082;
   letter-spacing: 0.18em;
   text-transform: uppercase;
+  margin-top: 8px;
 }
 
 /* ==========================================================================
@@ -332,4 +370,931 @@
   flex-direction: column;
   align-items: center;
   gap: 12px;
+}
+
+/* ==========================================================================
+   PANTALLA 3: TIMELINE / NUESTRA HISTORIA
+   ========================================================================== */
+.timeline-section {
+  width: 100%;
+}
+
+.timeline-container {
+  position: relative;
+  width: 100%;
+  padding-left: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  box-sizing: border-box;
+  margin-top: 8px;
+}
+
+.timeline-track {
+  position: absolute;
+  top: 12px;
+  bottom: 12px;
+  left: 9px;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(192, 132, 252, 0.6) 0%, rgba(126, 34, 206, 0.4) 70%, transparent 100%);
+  border-radius: 9999px;
+}
+
+.timeline-item {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.timeline-node {
+  position: absolute;
+  top: 16px;
+  left: -28px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #0d0718;
+  border: 2px solid var(--accent-violet);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 12px rgba(192, 132, 252, 0.5);
+  z-index: 2;
+}
+
+.node-glow {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.timeline-card {
+  width: 100%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 22px 18px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-sizing: border-box;
+}
+
+.timeline-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.event-step {
+  font-family: var(--font-title);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  color: var(--accent-violet);
+  font-weight: 700;
+}
+
+.event-date {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: #8f81a4;
+  text-transform: uppercase;
+  background: rgba(168, 85, 247, 0.08);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(168, 85, 247, 0.15);
+}
+
+.event-title {
+  font-family: var(--font-title);
+  font-size: 1.15rem;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  margin: 0;
+  font-weight: 600;
+}
+
+.event-description {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #ded6e9;
+  font-style: italic;
+  margin: 0;
+}
+
+.media-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: rgba(10, 6, 18, 0.7);
+  border: 1px dashed rgba(168, 85, 247, 0.25);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+.media-placeholder-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.media-icon {
+  font-size: 1.4rem;
+  opacity: 0.8;
+}
+
+.media-text {
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  color: #9d8db3;
+  font-style: normal;
+  text-align: center;
+}
+
+.timeline-closing {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: #c9bed8;
+  margin: 32px 0 8px;
+  max-width: 320px;
+}
+
+/* ==========================================================================
+   PANTALLA 4: RECUERDOS / GALERÍA
+   ========================================================================== */
+.gallery-section {
+  width: 100%;
+}
+
+.gallery-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.gallery-card {
+  position: relative;
+  width: 100%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  padding: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+}
+
+.gallery-card:active,
+.gallery-card.is-focused {
+  border-color: rgba(192, 132, 252, 0.6);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.7), 0 0 24px rgba(168, 85, 247, 0.25);
+  transform: scale(0.99);
+}
+
+.gallery-photo-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: radial-gradient(circle at 50% 50%, #170c2a 0%, #080410 100%);
+  border-radius: calc(var(--radius-lg) - 6px);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.photo-placeholder-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+}
+
+.photo-icon {
+  font-size: 1.8rem;
+}
+
+.photo-tag {
+  font-family: var(--font-title);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  color: #c4b5db;
+  text-transform: uppercase;
+}
+
+.photo-focus-badge {
+  position: absolute;
+  bottom: 12px;
+  background: rgba(30, 15, 50, 0.9);
+  border: 1px solid var(--accent-violet);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.gallery-caption-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+  padding: 0 4px 4px;
+}
+
+.gallery-caption {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: #ffffff;
+  font-style: italic;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.35;
+}
+
+.gallery-description {
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: #a496b8;
+  font-weight: 300;
+  margin: 0;
+}
+
+/* ==========================================================================
+   PANTALLA 5: COSAS QUE AMO DE TI (LOVE CARDS)
+   ========================================================================== */
+.love-cards-section {
+  width: 100%;
+}
+
+.discovery-counter {
+  font-family: var(--font-title);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  color: #8f81a4;
+  text-transform: uppercase;
+  background: rgba(168, 85, 247, 0.08);
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(168, 85, 247, 0.15);
+  margin-bottom: 20px;
+}
+
+.love-cards-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+}
+
+.love-card {
+  position: relative;
+  width: 100%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 22px 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.love-card:active {
+  transform: scale(0.98);
+}
+
+.love-card.is-revealed {
+  border-color: rgba(192, 132, 252, 0.55);
+  background: rgba(30, 16, 50, 0.8);
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.6), 0 0 20px rgba(168, 85, 247, 0.2);
+}
+
+.love-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.love-card-number {
+  font-family: var(--font-title);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--accent-violet);
+  font-weight: 700;
+}
+
+.love-card-state-icon {
+  font-size: 0.9rem;
+  color: var(--accent-violet);
+}
+
+.love-card-teaser {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.teaser-text {
+  font-family: var(--font-title);
+  font-size: 0.92rem;
+  letter-spacing: 0.12em;
+  color: #ded6e9;
+  text-transform: uppercase;
+}
+
+.teaser-hint {
+  font-size: 0.72rem;
+  color: #7d6e94;
+  letter-spacing: 0.05em;
+}
+
+.love-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: fadeIn 0.4s ease;
+}
+
+.revealed-title {
+  font-family: var(--font-title);
+  font-size: 1.08rem;
+  color: #ffffff;
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+
+.revealed-text {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #ded6e9;
+  font-style: italic;
+  margin: 0;
+}
+
+/* ==========================================================================
+   PANTALLA 6: MINI-JUEGO / QUIZ
+   ========================================================================== */
+.quiz-section {
+  width: 100%;
+}
+
+.quiz-card {
+  width: 100%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 28px 20px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+.quiz-progress-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.quiz-step-indicator {
+  font-family: var(--font-title);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  color: var(--accent-violet);
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.progress-track {
+  width: 100%;
+  height: 4px;
+  background: rgba(168, 85, 247, 0.12);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #9d4edd, #c084fc);
+  border-radius: 9999px;
+  transition: width 0.4s ease;
+}
+
+.quiz-question-text {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: #ffffff;
+  font-style: italic;
+  margin: 4px 0 8px;
+  line-height: 1.45;
+  text-align: left;
+}
+
+.quiz-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.quiz-option-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(16, 9, 26, 0.8);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  color: #ded6e9;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-sizing: border-box;
+}
+
+.quiz-option-btn:active:not(:disabled) {
+  transform: scale(0.98);
+  background: rgba(30, 16, 50, 0.9);
+  border-color: var(--accent-violet);
+}
+
+.option-letter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(168, 85, 247, 0.15);
+  color: var(--accent-violet);
+  font-family: var(--font-title);
+  font-size: 0.72rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.option-text {
+  flex: 1;
+  line-height: 1.4;
+}
+
+.quiz-option-btn.is-correct {
+  background: rgba(22, 101, 52, 0.35);
+  border-color: #4ade80;
+  color: #f0fdf4;
+}
+
+.quiz-option-btn.is-correct .option-letter {
+  background: #22c55e;
+  color: #ffffff;
+}
+
+.quiz-option-btn.is-wrong {
+  background: rgba(153, 27, 27, 0.35);
+  border-color: #f87171;
+  color: #fef2f2;
+}
+
+.quiz-option-btn.is-wrong .option-letter {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+.quiz-option-btn.is-faded {
+  opacity: 0.4;
+}
+
+.quiz-feedback-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  animation: fadeIn 0.35s ease;
+  margin-top: 8px;
+}
+
+.quiz-feedback-box.correct {
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(74, 222, 128, 0.35);
+}
+
+.quiz-feedback-box.incorrect {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(248, 113, 113, 0.35);
+}
+
+.feedback-message {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: #ffffff;
+  margin: 0;
+}
+
+.feedback-continue-btn {
+  max-width: 220px;
+  padding: 12px 20px;
+  font-size: 0.78rem;
+}
+
+.quiz-completed-card {
+  gap: 16px;
+}
+
+.quiz-trophy-icon {
+  font-size: 2.4rem;
+}
+
+/* ==========================================================================
+   PANTALLA 7: SECCIÓN SECRETA
+   ========================================================================== */
+.secret-section {
+  width: 100%;
+}
+
+.secret-mystery-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 32px 16px;
+}
+
+.secret-wait-tag {
+  font-family: var(--font-title);
+  font-size: 0.8rem;
+  letter-spacing: 0.35em;
+  color: var(--accent-violet);
+  text-transform: uppercase;
+}
+
+.secret-hint-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.3rem, 5vw, 1.6rem);
+  font-style: italic;
+  color: #ffffff;
+  line-height: 1.5;
+  max-width: 340px;
+  margin: 0;
+}
+
+.secret-ambient-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  margin-top: 24px;
+}
+
+.secret-micro-hint {
+  font-size: 0.8rem;
+  color: #6e6082;
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+.secret-trigger-btn {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, rgba(10, 6, 18, 0.9) 80%);
+  border: 1px solid rgba(192, 132, 252, 0.4);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.3);
+}
+
+.secret-trigger-btn:active {
+  transform: scale(0.92);
+  box-shadow: 0 0 40px rgba(192, 132, 252, 0.7);
+}
+
+.trigger-symbol {
+  font-size: 1.4rem;
+  color: var(--accent-violet);
+  animation: pulseGlow 2.5s infinite;
+}
+
+.secret-revealed-card {
+  animation: fadeIn 0.5s ease;
+}
+
+.secret-discovered-title {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  color: #ffffff;
+  font-style: italic;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.surprise-frame {
+  width: 100%;
+  background: rgba(12, 6, 20, 0.8);
+  border: 1px dashed rgba(192, 132, 252, 0.4);
+  border-radius: var(--radius-md);
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  box-sizing: border-box;
+}
+
+.surprise-icon {
+  font-size: 2rem;
+}
+
+.surprise-text {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: #ded6e9;
+  font-style: italic;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   PANTALLA 8: LA CARTA
+   ========================================================================== */
+.letter-section {
+  width: 100%;
+}
+
+.envelope-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  margin-top: 12px;
+}
+
+.gothic-envelope {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 16 / 11;
+  background: linear-gradient(135deg, #1d0f32 0%, #0b0614 100%);
+  border: 1px solid rgba(192, 132, 252, 0.35);
+  border-radius: var(--radius-md);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.7), 0 0 24px rgba(168, 85, 247, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  padding: 24px;
+}
+
+.gothic-envelope:active {
+  transform: scale(0.98);
+  border-color: rgba(192, 132, 252, 0.6);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.8), 0 0 32px rgba(192, 132, 252, 0.3);
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48%;
+  background: linear-gradient(180deg, rgba(46, 24, 78, 0.9) 0%, rgba(20, 10, 36, 0.9) 100%);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  border-bottom: 1px solid rgba(192, 132, 252, 0.25);
+}
+
+.envelope-seal {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #581c87 0%, #2e1065 100%);
+  border: 1px solid var(--accent-violet);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5), 0 0 12px rgba(192, 132, 252, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.seal-emblem {
+  font-size: 1.1rem;
+}
+
+.envelope-body {
+  position: relative;
+  z-index: 1;
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.envelope-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: #ffffff;
+  margin: 0;
+}
+
+.envelope-hint {
+  font-size: 0.72rem;
+  color: #8979a2;
+  letter-spacing: 0.05em;
+}
+
+/* Carta desplegada */
+.letter-card {
+  text-align: left;
+  padding: 36px 24px;
+  gap: 24px;
+  animation: fadeIn 0.5s ease;
+}
+
+.letter-header {
+  width: 100%;
+  border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+  padding-bottom: 12px;
+}
+
+.letter-greeting {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.letter-body-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.letter-paragraph {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #e5ddf0;
+  font-style: italic;
+  margin: 0;
+}
+
+.letter-footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  margin-top: 12px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(168, 85, 247, 0.2);
+}
+
+.letter-signature {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #c4b5db;
+}
+
+.letter-author {
+  font-family: var(--font-title);
+  font-size: 1.05rem;
+  letter-spacing: 0.15em;
+  color: #ffffff;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.letter-actions {
+  margin-top: 8px;
+}
+
+/* ==========================================================================
+   PANTALLA 9: FINAL
+   ========================================================================== */
+.final-section {
+  width: 100%;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.final-content-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+  max-width: 380px;
+}
+
+.final-title {
+  font-family: var(--font-title);
+  font-size: clamp(2rem, 7.5vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  line-height: 1.2;
+  background: linear-gradient(180deg, #ffffff 20%, #ebd8ff 60%, #c084fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 35px rgba(168, 85, 247, 0.35);
+  margin: 0;
+}
+
+.final-message {
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 4.5vw, 1.45rem);
+  line-height: 1.75;
+  color: #ded6e9;
+  font-style: italic;
+  margin: 8px 0 0;
+  text-wrap: balance;
+}
+
+.final-closing-words {
+  font-family: var(--font-title);
+  font-size: 1.35rem;
+  letter-spacing: 0.25em;
+  color: var(--accent-violet);
+  text-transform: uppercase;
+  margin: 12px 0 0;
+  font-weight: 600;
+  text-shadow: 0 0 20px rgba(192, 132, 252, 0.4);
+}
+
+.final-actions {
+  margin-top: 36px;
+}
+
+.final-restart-btn {
+  font-size: 0.76rem;
+  letter-spacing: 0.2em;
+  color: #796a90;
+  border-color: rgba(168, 85, 247, 0.15);
+}
+
+.final-restart-btn:active {
+  color: #ffffff;
+  border-color: var(--accent-violet);
 }
