@@ -1,45 +1,49 @@
 ﻿import React, { useState } from 'react'
 import AmbientBackground from './components/AmbientBackground'
-import ScreenIntro from './components/ScreenIntro'
-import ScreenPreview from './components/ScreenPreview'
+import Screen01Intro from './sections/Screen01Intro'
+import Screen02Welcome from './sections/Screen02Welcome'
 import './App.css'
 
 /**
- * App Principal
- * Controla el estado de navegación y las transiciones fluidas entre pantallas.
+ * App — Orquestador Principal
+ * Controla el avance secuencial por las pantallas del proyecto
+ * con transiciones cinematográficas y fluidas.
  */
 function App() {
-  // Estado actual: 'intro' | 'preview'
-  const [currentScreen, setCurrentScreen] = useState('intro')
-  // Estado para controlar la animación de salida / entrada
+  // Índice de pantalla actual: 1 a 9
+  const [currentScreen, setCurrentScreen] = useState(1)
   const [isTransitioning, setIsTransitioning] = useState(false)
 
-  // Función para cambiar de pantalla con una suave animación
-  const navigateTo = (targetScreen) => {
+  // Función de navegación fluida
+  const goToScreen = (screenNumber) => {
     if (isTransitioning) return
     setIsTransitioning(true)
 
-    // Tiempo sincronizado con la animación CSS (500ms)
     setTimeout(() => {
-      setCurrentScreen(targetScreen)
+      setCurrentScreen(screenNumber)
       setIsTransitioning(false)
+      // Asegurar scroll al tope en cada cambio de pantalla para iPhone
+      window.scrollTo({ top: 0, behavior: 'instant' })
     }, 450)
   }
 
   return (
     <>
-      {/* Fondo ambiental permanente con luces violetas y partículas */}
+      {/* Fondo inmersivo con iluminación ambiental violeta y partículas */}
       <AmbientBackground />
 
-      {/* Contenedor principal de la experiencia */}
-      <main className="app-container">
+      {/* Contenedor central mobile-first */}
+      <main className="experience-wrapper">
         <div className={`screen-transition ${isTransitioning ? 'exiting' : 'entering'}`}>
-          {currentScreen === 'intro' && (
-            <ScreenIntro onStart={() => navigateTo('preview')} />
+          {currentScreen === 1 && (
+            <Screen01Intro onNext={() => goToScreen(2)} />
           )}
 
-          {currentScreen === 'preview' && (
-            <ScreenPreview onBack={() => navigateTo('intro')} />
+          {currentScreen === 2 && (
+            <Screen02Welcome 
+              onNext={() => goToScreen(1)} 
+              onBack={() => goToScreen(1)} 
+            />
           )}
         </div>
       </main>
