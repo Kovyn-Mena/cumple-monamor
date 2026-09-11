@@ -3,9 +3,9 @@ import { experienceData } from '../data/experienceData'
 
 /**
  * Screen06Quiz — Pantalla 6: Mini-juego / Quiz interactivo
- * - Preguntas sobre la relación con respuestas múltiples y retroalimentación inmediata.
- * - Progreso paso a paso (Pregunta 1 de 3, etc.).
- * - Mensaje final de superación que desbloquea el avance a la sección secreta.
+ * - Preguntas sobre la historia compartida con consecuencias y progresión.
+ * - Respuestas incorrectas con personalidad sin frustración ("Casi...", "Eso era una trampa").
+ * - Al completar el quiz se desbloquea el acceso a la siguiente fase con un logro narrativo.
  */
 export default function Screen06Quiz({ onNext, onBack }) {
   const data = experienceData.screen06
@@ -15,6 +15,7 @@ export default function Screen06Quiz({ onNext, onBack }) {
   const [selectedOption, setSelectedOption] = useState(null)
   const [isAnswered, setIsAnswered] = useState(false)
   const [isCompleted, setIsCompleted] = useState(false)
+  const [answeredHistory, setAnsweredHistory] = useState([])
 
   const currentQ = questions[questionIndex]
 
@@ -22,6 +23,8 @@ export default function Screen06Quiz({ onNext, onBack }) {
     if (isAnswered) return
     setSelectedOption(index)
     setIsAnswered(true)
+    const isCorrect = index === currentQ.correctIndex
+    setAnsweredHistory(prev => [...prev, isCorrect])
   }
 
   const handleNextQuestion = () => {
@@ -39,6 +42,7 @@ export default function Screen06Quiz({ onNext, onBack }) {
     setSelectedOption(null)
     setIsAnswered(false)
     setIsCompleted(false)
+    setAnsweredHistory([])
   }
 
   const isCorrect = selectedOption === currentQ?.correctIndex
@@ -56,20 +60,25 @@ export default function Screen06Quiz({ onNext, onBack }) {
       {!isCompleted ? (
         /* Estado: Preguntas en curso */
         <div className="quiz-card">
-          {/* Barra de progreso */}
-          <div className="quiz-progress-bar">
-            <span className="quiz-step-indicator">
-              Pregunta {questionIndex + 1} de {questions.length}
-            </span>
-            <div className="progress-track">
-              <div 
-                className="progress-fill"
-                style={{ width: `${((questionIndex + 1) / questions.length) * 100}%` }}
-              />
-            </div>
+          {/* Indicadores de progresión estilo pasos */}
+          <div className="quiz-steps-tracker">
+            {questions.map((q, idx) => {
+              const isPast = idx < questionIndex
+              const isCurrent = idx === questionIndex
+              const pastSuccess = answeredHistory[idx] === true
+
+              return (
+                <div key={q.id || idx} className="step-dot-wrapper">
+                  <span className={`quiz-step-dot ${isCurrent ? 'active' : ''} ${isPast ? (pastSuccess ? 'passed' : 'attempted') : ''}`}>
+                    {isPast ? (pastSuccess ? '✓' : '•') : `0${idx + 1}`}
+                  </span>
+                  {idx < questions.length - 1 && <span className="step-connector-line" />}
+                </div>
+              )
+            })}
           </div>
 
-          {/* Texto de la pregunta */}
+          {/* Pregunta actual */}
           <h3 className="quiz-question-text">{currentQ.question}</h3>
 
           {/* Opciones */}
@@ -113,19 +122,24 @@ export default function Screen06Quiz({ onNext, onBack }) {
                 onClick={handleNextQuestion}
               >
                 <span>
-                  {questionIndex + 1 < questions.length ? 'Siguiente Pregunta →' : 'Ver Resultado'}
+                  {questionIndex + 1 < questions.length ? 'Siguiente Pregunta →' : 'Desbloquear Resultado'}
                 </span>
               </button>
             </div>
           )}
         </div>
       ) : (
-        /* Estado: Quiz completado */
+        /* Estado: Quiz completado y Acceso Desbloqueado */
         <div className="gothic-card quiz-completed-card">
-          <span className="quiz-trophy-icon">🏆</span>
-          <h3 className="card-title">¡Prueba Superada!</h3>
+          <div className="quiz-unlock-badge">
+            <span className="badge-pulse-glow" />
+            <span>ACCESO DESBLOQUEADO</span>
+          </div>
+
+          <h3 className="card-title">{data.unlockTitle}</h3>
+          
           <p className="poetic-paragraph">
-            "{data.completionMessage}"
+            "{data.unlockMessage}"
           </p>
 
           <div className="card-actions">

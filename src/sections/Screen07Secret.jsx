@@ -2,10 +2,10 @@
 import { experienceData } from '../data/experienceData'
 
 /**
- * Screen07Secret — Pantalla 7: Sección Secreta
- * - Mecánica de misterio y descubrimiento.
- * - Muestra un mensaje sutil de pausa y un gatillo interactivo oculto/discreto.
- * - Al ser descubierto, despliega con una animación el contenido secreto.
+ * Screen07Secret — Pantalla 7: Sección Secreta (Anomalía y Descubrimiento)
+ * - Narrativa con personalidad ("Creías que ya habías terminado... Qué ingenua.").
+ * - Gatillo interactivo en penumbra que no frustra ni es obvio.
+ * - Revelación de la sorpresa oculta con tarjeta de cristal y resplandor.
  */
 export default function Screen07Secret({ onNext, onBack }) {
   const data = experienceData.screen07
@@ -14,37 +14,37 @@ export default function Screen07Secret({ onNext, onBack }) {
   return (
     <div className="screen-layout secret-section">
       {!isDiscovered ? (
-        /* Estado 1: Búsqueda / Misterio */
+        /* Estado 1: La Pausa y la Anomalía */
         <div className="secret-mystery-box">
-          <span className="secret-wait-tag">{data.waitText}</span>
-          
-          <h2 className="secret-hint-title">
-            "{data.hintText}"
-          </h2>
+          <div className="title-block">
+            <h2 className="secret-pause-title">{data.pauseTitle}</h2>
+            <span className="secret-pause-subtitle">"{data.pauseSubtitle}"</span>
+            <div className="luminous-divider" />
+          </div>
+
+          <p className="secret-hint-text">
+            {data.hintText}
+          </p>
 
           <div className="secret-ambient-zone">
-            <p className="secret-micro-hint">
-              (Hay un pequeño secreto flotando en la penumbra...)
-            </p>
-
-            {/* Elemento oculto interactivo */}
+            {/* Gatillo / Anomalía visual discreta */}
             <button
-              className="secret-trigger-btn"
+              className="secret-anomaly-btn"
               onClick={() => setIsDiscovered(true)}
-              aria-label="Tocar el secreto oculto"
+              aria-label="Descubrir la anomalía oculta"
             >
-              <span className="trigger-symbol">{data.secretTrigger}</span>
-              <span className="trigger-ripple" />
+              <span className="anomaly-glyph">{data.secretTriggerSymbol}</span>
+              <span className="anomaly-pulse-ring" />
             </button>
           </div>
         </div>
       ) : (
         /* Estado 2: Secreto Revelado */
         <div className="gothic-card secret-revealed-card">
-          <span className="card-tag">Secreto Desbloqueado</span>
+          <span className="card-tag">{data.discoveredTag}</span>
 
           <h2 className="secret-discovered-title">
-            {data.discoveredTitle}
+            "{data.discoveredTitle}"
           </h2>
 
           <div className="luminous-divider" />
@@ -61,7 +61,7 @@ export default function Screen07Secret({ onNext, onBack }) {
             <button
               className="btn-gothic-primary"
               onClick={onNext}
-              aria-label="Continuar a la carta"
+              aria-label="Avanzar a la siguiente parte"
             >
               <span>{data.buttonText}</span>
             </button>

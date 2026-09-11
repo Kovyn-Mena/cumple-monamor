@@ -1,12 +1,9 @@
-/**
+﻿/**
  * ============================================================================
- * EXPERIENCE DATA (Contenido Editable del Proyecto)
+ * EXPERIENCE DATA (Contenido Editable y Narrativa del Proyecto)
  * ============================================================================
- * Este archivo centraliza TODO el contenido de la web interactiva.
- * Cuando quieras personalizar los textos, fechas o fotos para Paula,
- * solo debes modificar los valores entre comillas aquí abajo.
- * 
- * NOTA: Los textos entre corchetes "[...]" son placeholders de prueba.
+ * Centraliza todo el contenido editable, textos poéticos, placeholders
+ * y estructura narrativa de la experiencia.
  */
 
 export const experienceData = {
@@ -26,6 +23,7 @@ export const experienceData = {
     title: "Una pequeña dedicatoria",
     message1: "No sabía muy bien cómo hacerte un regalo que pudiera guardar todo lo que quería decirte.",
     message2: "Así que construí este pequeño rincón, un lugar oscuro y tranquilo, hecho solo para ti.",
+    whisper: "sigue.",
     buttonText: "CONTINUAR",
     backText: "Volver al inicio"
   },
@@ -62,42 +60,55 @@ export const experienceData = {
       }
     ],
     closingText: "Y de alguna manera llegamos hasta aquí...",
-    buttonText: "SIGUIENTE CAPÍTULO"
+    whisper: "esto apenas comienza.",
+    buttonText: "EXPLORAR EL ARCHIVO",
+    backText: "Volver a la bienvenida"
   },
 
-  // PANTALLA 4: RECUERDOS / GALERÍA
+  // PANTALLA 4: ARCHIVO DE NOSOTROS (Galería Personal)
   screen04: {
     tag: "Capítulo II",
-    title: "Galería de Recuerdos",
-    subtitle: "Pequeños fragmentos de tiempo congelados.",
+    title: "Archivo // Nosotros",
+    subtitle: "Registros de instantes que el tiempo no borra.",
+    whisper: "todavía falta una foto por encontrar...",
     memories: [
       {
         id: 1,
+        code: "01",
+        title: "El Comienzo",
+        date: "[FECHA REGISTRO 01]",
         caption: "Esta me gusta porque...",
-        description: "[Texto explicando por qué esta foto es especial]",
-        imagePlaceholder: "[Foto 1]"
+        description: "[Aquí irá el texto explicando por qué esta foto es especial.]",
+        imagePlaceholder: "[Foto del Registro 01]"
       },
       {
         id: 2,
+        code: "02",
+        title: "Tardes Compartidas",
+        date: "[FECHA REGISTRO 02]",
         caption: "Uno de mis recuerdos favoritos.",
-        description: "[Texto recordando las risas de ese instante]",
-        imagePlaceholder: "[Foto 2]"
+        description: "[Aquí irá el texto recordando las risas y la complicidad de ese día.]",
+        imagePlaceholder: "[Foto del Registro 02]"
       },
       {
         id: 3,
+        code: "03",
+        title: "En Cualquier Rincón",
+        date: "[FECHA REGISTRO 03]",
         caption: "Simplemente tú.",
-        description: "[Texto sobre lo increíble que te ves aquí]",
-        imagePlaceholder: "[Foto 3]"
+        description: "[Aquí irá el texto sobre lo increíble y natural que te ves aquí.]",
+        imagePlaceholder: "[Foto del Registro 03]"
       }
     ],
-    buttonText: "CONTINUAR EL VIAJE"
+    buttonText: "CONTINUAR EL VIAJE",
+    backText: "Volver a nuestra historia"
   },
 
-  // PANTALLA 5: COSAS QUE AMO DE TI
+  // PANTALLA 5: COSAS QUE AMO DE TI (Descubrimiento Progresivo)
   screen05: {
     tag: "Capítulo III",
     title: "Cosas que amo de ti",
-    subtitle: "Toca cada tarjeta para revelar un secreto.",
+    subtitle: "Pequeños secretos que encuentro en ti cada día.",
     cards: [
       {
         id: 1,
@@ -111,25 +122,26 @@ export const experienceData = {
         number: "02",
         teaser: "Toca para descubrir",
         revealedTitle: "Tu complicidad",
-        revealedText: "[Aquí irá una segunda cosa que amo de ti: cómo entendemos todo sin decir una palabra.]"
+        revealedText: "[Aquí irá una segunda cosa que amo de ti: cómo entendemos todo sin decir una sola palabra.]"
       },
       {
         id: 3,
         number: "03",
         teaser: "Toca para descubrir",
         revealedTitle: "Nuestros momentos de paz",
-        revealedText: "[Aquí irá una tercera cosa que amo de ti: la calma que encuentro cuando estoy a tu lado.]"
+        revealedText: "[Aquí irá una tercera cosa que amo de ti: la calma infinita que encuentro cuando estoy a tu lado.]"
       }
     ],
+    allRevealedNotice: "Todos los secretos han sido descubiertos.",
     buttonText: "SIGUIENTE RETO",
-    backText: "Volver a la galería"
+    backText: "Volver al archivo"
   },
 
-  // PANTALLA 6: MINI-JUEGO / QUIZ
+  // PANTALLA 6: MINI-JUEGO / QUIZ (Con Consecuencias y Desbloqueo)
   screen06: {
     tag: "Capítulo IV",
     title: "¿Cuánto recuerdas?",
-    subtitle: "Un pequeño test sobre nuestra historia juntos.",
+    subtitle: "Un pequeño test para comprobar si tienes buena memoria.",
     questions: [
       {
         id: 1,
@@ -165,28 +177,43 @@ export const experienceData = {
         ],
         correctIndex: 2,
         successMessage: "Inconfundible. Lo sabíamos los dos.",
-        failMessage: "Casi, pero fue un empate perfecto."
+        failMessage: "Casi... fue una pequeña trampa."
       }
     ],
-    completionMessage: "Creo que conoces bastante bien nuestra historia.",
+    unlockTitle: "3/3 recuerdos recuperados",
+    unlockMessage: "Creo que ya estás lista para lo que sigue.",
     buttonText: "CONTINUAR",
     backText: "Volver a cosas que amo"
   },
 
-  // PANTALLA 7: SECCIÓN SECRETA
+  // PANTALLA 7: SECCIÓN SECRETA (Anomalía y Descubrimiento)
   screen07: {
-    waitText: "Espera...",
-    hintText: "Creo que todavía falta algo escondido por aquí.",
-    secretTrigger: "✦",
+    pauseTitle: "Creías que ya habías terminado.",
+    pauseSubtitle: "Qué ingenua.",
+    hintText: "Hay una pequeña anomalía flotando en la penumbra... encuéntrala.",
+    secretTriggerSymbol: "✦",
+    discoveredTag: "Acceso Concedido",
     discoveredTitle: "Ok, sí. Esto estaba escondido a propósito.",
-    surpriseContent: "[Aquí irá la sorpresa: una foto oculta, un audio, una promesa o un mensaje especial.]",
-    buttonText: "IR A LA CARTA",
+    surpriseContent: "[Aquí irá la sorpresa: una promesa, un detalle oculto o una memoria guardada especialmente para ti.]",
+    buttonText: "AVANZAR",
     backText: "Volver al quiz"
   },
 
-  // PANTALLA 8: CARTA
+  // PANTALLA 8: CONFESIÓN, FOTO ESPECIAL Y LA CARTA
   screen08: {
     tag: "Capítulo V",
+    // Pausa emocional previa
+    confessionTitle: "Hay algo que no sabía cómo poner en esta página...",
+    confessionSubtitle: "Así que simplemente voy a decirlo:",
+    confessionBody: "[Aquí irá una pequeña confesión o mensaje íntimo antes de la carta.]",
+    
+    // Foto especial reservada
+    specialPhotoBadge: "Archivo // Registro Final",
+    specialPhotoTitle: "Ahora sí.",
+    specialPhotoPlaceholder: "[FOTO ESPECIAL: Aquella imagen que no podía faltar]",
+    specialPhotoCaption: "Esta fotografía también tenía que estar aquí.",
+    
+    // Sobre y Carta
     envelopeTitle: "Hay algo que quiero decirte.",
     openButtonText: "ABRIR CARTA",
     letterGreeting: "Querida Paula,",
@@ -197,10 +224,11 @@ export const experienceData = {
     ],
     letterSignature: "Siempre tuyo,",
     author: "Kovyn",
-    buttonText: "VER MENSAJE FINAL"
+    buttonText: "VER MENSAJE FINAL",
+    backText: "Volver al secreto"
   },
 
-  // PANTALLA 9: FINAL
+  // PANTALLA 9: FINAL (Minimalismo y Serenidad)
   screen09: {
     tag: "Para Siempre",
     title: "Feliz Cumpleaños, Paula",

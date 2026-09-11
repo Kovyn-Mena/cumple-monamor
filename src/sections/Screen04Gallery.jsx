@@ -2,23 +2,19 @@
 import { experienceData } from '../data/experienceData'
 
 /**
- * Screen04Gallery — Pantalla 4: Recuerdos / Galería
- * - Galería de memorias íntima optimizada para iPhone y pantallas táctiles.
- * - Tarjetas con marcos fotográficos estilizados en cristal oscuro.
- * - Captions poéticos y descripciones explicativas.
- * - Micro-interacción táctil al tocar una fotografía para destacarla.
+ * Screen04Gallery — Pantalla 4: Archivo // Nosotros
+ * - Estilo índice personal de registros y memorias.
+ * - Lista táctil de entradas ([01] EL COMIENZO, [02] ..., etc.).
+ * - Al tocar un registro, se abre el detalle con fotografía, fecha y relato.
+ * - Incluye el sutil detalle narrativo: "todavía falta una foto por encontrar...".
  */
 export default function Screen04Gallery({ onNext, onBack }) {
   const data = experienceData.screen04
-  const [selectedId, setSelectedId] = useState(null)
-
-  const handleSelect = (id) => {
-    setSelectedId(prev => (prev === id ? null : id))
-  }
+  const [activeMemory, setActiveMemory] = useState(data.memories[0])
 
   return (
-    <div className="screen-layout gallery-section">
-      {/* Encabezado de la galería */}
+    <div className="screen-layout archive-section">
+      {/* Encabezado del Archivo */}
       <div className="section-header">
         <span className="card-tag">{data.tag}</span>
         <h2 className="section-title">{data.title}</h2>
@@ -26,48 +22,60 @@ export default function Screen04Gallery({ onNext, onBack }) {
         <div className="luminous-divider" />
       </div>
 
-      {/* Lista de tarjetas de recuerdo */}
-      <div className="gallery-grid">
-        {data.memories.map((item, index) => {
-          const isSelected = selectedId === item.id
+      {/* Detalle narrativo / susurro */}
+      {data.whisper && (
+        <span className="narrative-whisper">
+          "{data.whisper}"
+        </span>
+      )}
+
+      {/* Selector tipo índice de registros */}
+      <div className="archive-index-tabs" role="tablist">
+        {data.memories.map((mem) => {
+          const isActive = activeMemory?.id === mem.id
 
           return (
-            <article 
-              key={item.id || index}
-              className={`gallery-card ${isSelected ? 'is-focused' : ''}`}
-              onClick={() => handleSelect(item.id)}
-              role="button"
-              tabIndex={0}
-              aria-label={`Recuerdo: ${item.caption}`}
+            <button
+              key={mem.id}
+              className={`archive-tab-btn ${isActive ? 'is-active' : ''}`}
+              onClick={() => setActiveMemory(mem)}
+              role="tab"
+              aria-selected={isActive}
             >
-              {/* Marco fotográfico placeholder */}
-              <div className="gallery-photo-frame">
-                <div className="photo-placeholder-content">
-                  <span className="photo-icon">📷</span>
-                  <span className="photo-tag">{item.imagePlaceholder}</span>
-                </div>
-                {isSelected && (
-                  <div className="photo-focus-badge">
-                    <span>Recuerdo seleccionado</span>
-                  </div>
-                )}
-              </div>
-
-              {/* Pie de foto / Caption */}
-              <div className="gallery-caption-block">
-                <h3 className="gallery-caption">
-                  "{item.caption}"
-                </h3>
-                <p className="gallery-description">
-                  {item.description}
-                </p>
-              </div>
-            </article>
+              <span className="tab-code">[{mem.code}]</span>
+              <span className="tab-title">{mem.title}</span>
+            </button>
           )
         })}
       </div>
 
-      <span className="tap-hint">Toca una foto para iluminarla</span>
+      {/* Tarjeta del registro activo */}
+      {activeMemory && (
+        <article className="gothic-card archive-detail-card" key={activeMemory.id}>
+          <div className="archive-card-header">
+            <span className="archive-entry-code">REGISTRO #{activeMemory.code}</span>
+            <span className="event-date">{activeMemory.date}</span>
+          </div>
+
+          {/* Marco fotográfico placeholder */}
+          <div className="gallery-photo-frame">
+            <div className="photo-placeholder-content">
+              <span className="photo-icon">📷</span>
+              <span className="photo-tag">{activeMemory.imagePlaceholder}</span>
+            </div>
+          </div>
+
+          {/* Relato del recuerdo */}
+          <div className="archive-card-body">
+            <h3 className="gallery-caption">
+              "{activeMemory.caption}"
+            </h3>
+            <p className="gallery-description">
+              {activeMemory.description}
+            </p>
+          </div>
+        </article>
+      )}
 
       {/* Acciones de navegación */}
       <div className="section-actions">
@@ -83,9 +91,9 @@ export default function Screen04Gallery({ onNext, onBack }) {
           <button 
             className="btn-gothic-ghost" 
             onClick={onBack}
-            aria-label="Volver a la línea de tiempo"
+            aria-label="Volver a nuestra historia"
           >
-            ← Volver a nuestra historia
+            ← {data.backText}
           </button>
         )}
       </div>

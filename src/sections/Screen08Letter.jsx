@@ -2,15 +2,17 @@
 import { experienceData } from '../data/experienceData'
 
 /**
- * Screen08Letter — Pantalla 8: La Carta
- * - Clímax emocional de la experiencia.
- * - Presenta inicialmente un sobre oscuro elegante con sello de cera violeta.
- * - Al pulsar "ABRIR CARTA", se despliega suavemente el documento con tipografía literaria.
- * - Botón para avanzar hacia la pantalla final.
+ * Screen08Letter — Pantalla 8: Confesión, Foto Especial y La Carta
+ * - Progresión emocional en 4 etapas fluidas:
+ *   1. Confesión previa (pausa emocional minimalista).
+ *   2. Foto Especial reservada para el final.
+ *   3. Sobre cerrado con sello de cera.
+ *   4. Carta desplegada con tipografía clásica.
  */
 export default function Screen08Letter({ onNext, onBack }) {
   const data = experienceData.screen08
-  const [isOpen, setIsOpen] = useState(false)
+  // Etapas: 'confession' | 'specialPhoto' | 'envelope' | 'letter'
+  const [phase, setPhase] = useState('confession')
 
   return (
     <div className="screen-layout letter-section">
@@ -21,12 +23,65 @@ export default function Screen08Letter({ onNext, onBack }) {
         <div className="luminous-divider" />
       </div>
 
-      {!isOpen ? (
-        /* Estado 1: El Sobre Cerrado */
+      {/* FASE 1: PAUSA EMOCIONAL / CONFESIÓN */}
+      {phase === 'confession' && (
+        <div className="confession-box">
+          <h3 className="confession-title">{data.confessionTitle}</h3>
+          <p className="confession-subtitle">{data.confessionSubtitle}</p>
+          
+          <div className="confession-body-card">
+            <p className="confession-text">
+              "{data.confessionBody}"
+            </p>
+          </div>
+
+          <div className="section-actions">
+            <button 
+              className="btn-gothic-primary"
+              onClick={() => setPhase('specialPhoto')}
+              aria-label="Continuar a la foto especial"
+            >
+              <span>Continuar →</span>
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* FASE 2: FOTOGRAFÍA ESPECIAL RESERVADA */}
+      {phase === 'specialPhoto' && (
+        <div className="special-photo-box">
+          <span className="special-photo-badge">{data.specialPhotoBadge}</span>
+          <h3 className="special-photo-title">"{data.specialPhotoTitle}"</h3>
+
+          <div className="special-photo-frame">
+            <div className="special-photo-inner">
+              <span className="photo-icon">✨</span>
+              <span className="special-photo-tag">{data.specialPhotoPlaceholder}</span>
+            </div>
+          </div>
+
+          <p className="special-photo-caption">
+            "{data.specialPhotoCaption}"
+          </p>
+
+          <div className="section-actions">
+            <button 
+              className="btn-gothic-primary"
+              onClick={() => setPhase('envelope')}
+              aria-label="Ir al sobre de la carta"
+            >
+              <span>Ir a la carta →</span>
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* FASE 3: EL SOBRE CERRADO */}
+      {phase === 'envelope' && (
         <div className="envelope-wrapper">
           <div 
             className="gothic-envelope"
-            onClick={() => setIsOpen(true)}
+            onClick={() => setPhase('letter')}
             role="button"
             tabIndex={0}
             aria-label="Sobre cerrado. Toca para abrir."
@@ -43,14 +98,16 @@ export default function Screen08Letter({ onNext, onBack }) {
 
           <button 
             className="btn-gothic-primary"
-            onClick={() => setIsOpen(true)}
+            onClick={() => setPhase('letter')}
             aria-label="Abrir la carta"
           >
             <span>{data.openButtonText}</span>
           </button>
         </div>
-      ) : (
-        /* Estado 2: La Carta Desplegada */
+      )}
+
+      {/* FASE 4: LA CARTA DESPLEGADA */}
+      {phase === 'letter' && (
         <article className="gothic-card letter-card">
           <header className="letter-header">
             <h3 className="letter-greeting">{data.letterGreeting}</h3>
@@ -89,7 +146,7 @@ export default function Screen08Letter({ onNext, onBack }) {
             onClick={onBack}
             aria-label="Volver a la sección secreta"
           >
-            ← Volver al secreto
+            ← {data.backText}
           </button>
         )}
       </div>

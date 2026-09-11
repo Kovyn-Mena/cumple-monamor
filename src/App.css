@@ -153,6 +153,16 @@
   margin: 0;
 }
 
+.narrative-whisper {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #c4b5db;
+  margin-bottom: 20px;
+  opacity: 0.9;
+  letter-spacing: 0.02em;
+}
+
 .title-block {
   display: flex;
   flex-direction: column;
@@ -213,7 +223,7 @@
 }
 
 .section-actions {
-  margin-top: 32px;
+  margin-top: 28px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -533,44 +543,76 @@
 }
 
 /* ==========================================================================
-   PANTALLA 4: RECUERDOS / GALERÍA
+   PANTALLA 4: ARCHIVO // NOSOTROS
    ========================================================================== */
-.gallery-section {
+.archive-section {
   width: 100%;
 }
 
-.gallery-grid {
+.archive-index-tabs {
   display: flex;
-  flex-direction: column;
-  gap: 24px;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
   width: 100%;
-  margin-top: 8px;
+  margin-bottom: 20px;
 }
 
-.gallery-card {
-  position: relative;
-  width: 100%;
-  background: var(--bg-surface);
+.archive-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(16, 9, 26, 0.7);
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  padding: 16px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  border-radius: var(--radius-full);
+  color: #8f81a4;
+  font-family: var(--font-title);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-sizing: border-box;
+  transition: all 0.25s ease;
 }
 
-.gallery-card:active,
-.gallery-card.is-focused {
-  border-color: rgba(192, 132, 252, 0.6);
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.7), 0 0 24px rgba(168, 85, 247, 0.25);
-  transform: scale(0.99);
+.archive-tab-btn.is-active {
+  background: rgba(45, 22, 72, 0.9);
+  border-color: var(--accent-violet);
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(168, 85, 247, 0.3);
+}
+
+.tab-code {
+  color: var(--accent-violet);
+  font-weight: 700;
+}
+
+.archive-detail-card {
+  text-align: left;
+  padding: 24px 20px;
+  gap: 16px;
+  animation: fadeIn 0.4s ease;
+}
+
+.archive-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.archive-entry-code {
+  font-family: var(--font-title);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--accent-violet);
+  font-weight: 700;
+}
+
+.archive-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
 }
 
 .gallery-photo-frame {
@@ -604,27 +646,6 @@
   letter-spacing: 0.12em;
   color: #c4b5db;
   text-transform: uppercase;
-}
-
-.photo-focus-badge {
-  position: absolute;
-  bottom: 12px;
-  background: rgba(30, 15, 50, 0.9);
-  border: 1px solid var(--accent-violet);
-  padding: 4px 12px;
-  border-radius: var(--radius-full);
-  font-size: 0.7rem;
-  letter-spacing: 0.1em;
-  color: #ffffff;
-  text-transform: uppercase;
-}
-
-.gallery-caption-block {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  text-align: left;
-  padding: 0 4px 4px;
 }
 
 .gallery-caption {
@@ -785,35 +806,58 @@
   box-sizing: border-box;
 }
 
-.quiz-progress-bar {
+.quiz-steps-tracker {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
   width: 100%;
 }
 
-.quiz-step-indicator {
+.step-dot-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.quiz-step-dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(18, 10, 28, 0.8);
+  border: 1px solid var(--border-subtle);
+  color: #8f81a4;
   font-family: var(--font-title);
   font-size: 0.72rem;
-  letter-spacing: 0.2em;
-  color: var(--accent-violet);
-  text-transform: uppercase;
-  text-align: left;
+  font-weight: 700;
+  transition: all 0.3s ease;
 }
 
-.progress-track {
-  width: 100%;
-  height: 4px;
-  background: rgba(168, 85, 247, 0.12);
-  border-radius: 9999px;
-  overflow: hidden;
+.quiz-step-dot.active {
+  border-color: var(--accent-violet);
+  color: #ffffff;
+  box-shadow: 0 0 14px rgba(168, 85, 247, 0.4);
 }
 
-.progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg, #9d4edd, #c084fc);
-  border-radius: 9999px;
-  transition: width 0.4s ease;
+.quiz-step-dot.passed {
+  background: rgba(34, 197, 94, 0.2);
+  border-color: #4ade80;
+  color: #4ade80;
+}
+
+.quiz-step-dot.attempted {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: #f87171;
+  color: #f87171;
+}
+
+.step-connector-line {
+  width: 20px;
+  height: 1px;
+  background: rgba(168, 85, 247, 0.2);
 }
 
 .quiz-question-text {
@@ -939,15 +983,34 @@
 }
 
 .quiz-completed-card {
-  gap: 16px;
+  gap: 18px;
 }
 
-.quiz-trophy-icon {
-  font-size: 2.4rem;
+.quiz-unlock-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  background: rgba(168, 85, 247, 0.1);
+  border: 1px solid var(--accent-violet);
+  font-family: var(--font-title);
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  color: var(--accent-violet);
+}
+
+.badge-pulse-glow {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-violet);
+  box-shadow: 0 0 8px var(--accent-violet);
+  animation: pulseGlow 2s infinite;
 }
 
 /* ==========================================================================
-   PANTALLA 7: SECCIÓN SECRETA
+   PANTALLA 7: SECCIÓN SECRETA (Anomalía)
    ========================================================================== */
 .secret-section {
   width: 100%;
@@ -958,66 +1021,64 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
-  padding: 32px 16px;
+  gap: 16px;
+  padding: 24px 16px;
 }
 
-.secret-wait-tag {
+.secret-pause-title {
   font-family: var(--font-title);
-  font-size: 0.8rem;
-  letter-spacing: 0.35em;
-  color: var(--accent-violet);
-  text-transform: uppercase;
+  font-size: clamp(1.4rem, 5.5vw, 1.8rem);
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  margin: 0;
 }
 
-.secret-hint-title {
+.secret-pause-subtitle {
   font-family: var(--font-serif);
-  font-size: clamp(1.3rem, 5vw, 1.6rem);
+  font-size: 1.25rem;
   font-style: italic;
-  color: #ffffff;
-  line-height: 1.5;
-  max-width: 340px;
-  margin: 0;
+  color: var(--accent-violet);
+}
+
+.secret-hint-text {
+  font-size: 0.88rem;
+  color: #8d7ea3;
+  line-height: 1.6;
+  max-width: 320px;
+  margin: 8px 0 16px;
 }
 
 .secret-ambient-zone {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 32px;
-  margin-top: 24px;
+  gap: 24px;
+  margin-top: 16px;
 }
 
-.secret-micro-hint {
-  font-size: 0.8rem;
-  color: #6e6082;
-  font-style: italic;
-  letter-spacing: 0.02em;
-}
-
-.secret-trigger-btn {
+.secret-anomaly-btn {
   position: relative;
-  width: 60px;
-  height: 60px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, rgba(10, 6, 18, 0.9) 80%);
-  border: 1px solid rgba(192, 132, 252, 0.4);
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.3) 0%, rgba(10, 6, 18, 0.95) 80%);
+  border: 1px solid rgba(192, 132, 252, 0.45);
   color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 0 25px rgba(168, 85, 247, 0.3);
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.35);
 }
 
-.secret-trigger-btn:active {
+.secret-anomaly-btn:active {
   transform: scale(0.92);
-  box-shadow: 0 0 40px rgba(192, 132, 252, 0.7);
+  box-shadow: 0 0 45px rgba(192, 132, 252, 0.8);
 }
 
-.trigger-symbol {
-  font-size: 1.4rem;
+.anomaly-glyph {
+  font-size: 1.5rem;
   color: var(--accent-violet);
   animation: pulseGlow 2.5s infinite;
 }
@@ -1028,7 +1089,7 @@
 
 .secret-discovered-title {
   font-family: var(--font-serif);
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   color: #ffffff;
   font-style: italic;
   margin: 0;
@@ -1062,12 +1123,122 @@
 }
 
 /* ==========================================================================
-   PANTALLA 8: LA CARTA
+   PANTALLA 8: CONFESIÓN, FOTO ESPECIAL Y CARTA
    ========================================================================== */
 .letter-section {
   width: 100%;
 }
 
+.confession-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  animation: fadeIn 0.4s ease;
+}
+
+.confession-title {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-style: italic;
+  color: #ffffff;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.confession-subtitle {
+  font-family: var(--font-title);
+  font-size: 0.78rem;
+  letter-spacing: 0.25em;
+  color: var(--accent-violet);
+  text-transform: uppercase;
+}
+
+.confession-body-card {
+  width: 100%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 28px 20px;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(16px);
+}
+
+.confession-text {
+  font-family: var(--font-serif);
+  font-size: 1.18rem;
+  line-height: 1.8;
+  color: #ded6e9;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Foto Especial */
+.special-photo-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  animation: fadeIn 0.4s ease;
+}
+
+.special-photo-badge {
+  font-family: var(--font-title);
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  color: var(--accent-violet);
+  text-transform: uppercase;
+}
+
+.special-photo-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-style: italic;
+  color: #ffffff;
+  margin: 0;
+}
+
+.special-photo-frame {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: radial-gradient(circle at 50% 50%, #251240 0%, #090512 100%);
+  border: 1px solid rgba(192, 132, 252, 0.4);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.7), 0 0 30px rgba(168, 85, 247, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.special-photo-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.special-photo-tag {
+  font-family: var(--font-title);
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  color: #e2d9ec;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.special-photo-caption {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-style: italic;
+  color: #a496b8;
+  margin: 0;
+}
+
+/* Sobre */
 .envelope-wrapper {
   width: 100%;
   display: flex;
@@ -1075,6 +1246,7 @@
   align-items: center;
   gap: 28px;
   margin-top: 12px;
+  animation: fadeIn 0.4s ease;
 }
 
 .gothic-envelope {
