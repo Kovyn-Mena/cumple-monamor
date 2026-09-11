@@ -1,0 +1,59 @@
+﻿name: Despliegue Automático a GitHub Pages
+
+on:
+  # Se ejecuta automáticamente cada vez que haces push a la rama main o master
+  push:
+    branches:
+      - main
+      - master
+
+  # Permite ejecutar el despliegue manualmente desde la pestaña Actions en GitHub
+  workflow_dispatch:
+
+# Configuración de permisos necesarios para GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Evita despliegues simultáneos conflictivos
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+jobs:
+  # Tarea 1: Compilar el proyecto con Vite
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Compilar sitio estático (Vite Build)
+        run: npm run build
+
+      - name: Subir artefacto para GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+
+  # Tarea 2: Publicar en GitHub Pages
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Publicar sitio en GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
