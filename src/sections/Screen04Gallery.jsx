@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react'
+import React, { useState } from 'react'
 import { experienceData } from '../data/experienceData'
 
 /**
@@ -57,12 +57,16 @@ export default function Screen04Gallery({ onNext, onBack }) {
             <span className="event-date">{activeMemory.date}</span>
           </div>
 
-          {/* Marco fotográfico placeholder */}
+          {/* Marco fotográfico o imagen real */}
           <div className="gallery-photo-frame">
-            <div className="photo-placeholder-content">
-              <span className="photo-icon">📷</span>
-              <span className="photo-tag">{activeMemory.imagePlaceholder}</span>
-            </div>
+            {activeMemory.image ? (
+              <img src={activeMemory.image} alt={activeMemory.title} className="gallery-photo-img" loading="lazy" />
+            ) : (
+              <div className="photo-placeholder-content">
+                <span className="photo-icon">📷</span>
+                <span className="photo-tag">{activeMemory.imagePlaceholder}</span>
+              </div>
+            )}
           </div>
 
           {/* Relato del recuerdo */}

@@ -1,4 +1,4 @@
-﻿import React from 'react'
+import React from 'react'
 import { experienceData } from '../data/experienceData'
 
 /**
@@ -41,12 +41,16 @@ export default function Screen03Timeline({ onNext, onBack }) {
 
               <h3 className="event-title">{event.title}</h3>
 
-              {/* Placeholder de imagen elegante */}
-              <div className="media-placeholder" role="img" aria-label={event.imagePlaceholder}>
-                <div className="media-placeholder-inner">
-                  <span className="media-icon">🖼️</span>
-                  <span className="media-text">{event.imagePlaceholder}</span>
-                </div>
+              {/* Placeholder o Imagen Real */}
+              <div className="media-placeholder" role="img" aria-label={event.imagePlaceholder || event.title}>
+                {event.image ? (
+                  <img src={event.image} alt={event.title} className="media-img" loading="lazy" />
+                ) : (
+                  <div className="media-placeholder-inner">
+                    <span className="media-icon">🖼️</span>
+                    <span className="media-text">{event.imagePlaceholder}</span>
+                  </div>
+                )}
               </div>
 
               <p className="event-description">

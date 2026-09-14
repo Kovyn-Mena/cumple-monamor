@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react'
+import React, { useState } from 'react'
 import { experienceData } from '../data/experienceData'
 
 /**
@@ -54,10 +54,14 @@ export default function Screen08Letter({ onNext, onBack }) {
           <h3 className="special-photo-title">"{data.specialPhotoTitle}"</h3>
 
           <div className="special-photo-frame">
-            <div className="special-photo-inner">
-              <span className="photo-icon">✨</span>
-              <span className="special-photo-tag">{data.specialPhotoPlaceholder}</span>
-            </div>
+            {data.specialPhoto ? (
+              <img src={data.specialPhoto} alt={data.specialPhotoTitle} className="special-photo-img" loading="lazy" />
+            ) : (
+              <div className="special-photo-inner">
+                <span className="photo-icon">✨</span>
+                <span className="special-photo-tag">{data.specialPhotoPlaceholder}</span>
+              </div>
+            )}
           </div>
 
           <p className="special-photo-caption">

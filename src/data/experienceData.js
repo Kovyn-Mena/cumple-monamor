@@ -60,7 +60,8 @@ export const experienceData = {
         title: "El Comienzo",
         date: "[FECHA INICIAL]",
         description: "[Aquí escribiré cómo nos conocimos o el primer recuerdo especial juntos.]",
-        imagePlaceholder: "[Foto del primer momento]"
+        imagePlaceholder: "[Foto del primer momento]",
+        image: "" // Ruta opcional: "./images/timeline/01.webp"
       },
       {
         id: 2,
@@ -68,7 +69,8 @@ export const experienceData = {
         title: "Aquel Día Especial",
         date: "[FECHA DEL RECUERDO]",
         description: "[Aquí irá la anécdota o ese momento donde supimos que esto era único.]",
-        imagePlaceholder: "[Foto de aquel día]"
+        imagePlaceholder: "[Foto de aquel día]",
+        image: "" // Ruta opcional: "./images/timeline/02.webp"
       },
       {
         id: 3,
@@ -76,7 +78,8 @@ export const experienceData = {
         title: "Un Viaje / Aventura",
         date: "[FECHA DEL VIAJE]",
         description: "[Aquí irá la historia de una escapada, salida o noche inolvidable.]",
-        imagePlaceholder: "[Foto de la aventura]"
+        imagePlaceholder: "[Foto de la aventura]",
+        image: "" // Ruta opcional: "./images/timeline/03.webp"
       }
     ],
     closingText: "Y de alguna manera llegamos hasta aquí...",
@@ -99,7 +102,8 @@ export const experienceData = {
         date: "[FECHA REGISTRO 01]",
         caption: "Esta me gusta porque...",
         description: "[Aquí irá el texto explicando por qué esta foto es especial.]",
-        imagePlaceholder: "[Foto del Registro 01]"
+        imagePlaceholder: "[Foto del Registro 01]",
+        image: "" // Ruta opcional: "./images/gallery/01.webp"
       },
       {
         id: 2,
@@ -108,7 +112,8 @@ export const experienceData = {
         date: "[FECHA REGISTRO 02]",
         caption: "Uno de mis recuerdos favoritos.",
         description: "[Aquí irá el texto recordando las risas y la complicidad de ese día.]",
-        imagePlaceholder: "[Foto del Registro 02]"
+        imagePlaceholder: "[Foto del Registro 02]",
+        image: "" // Ruta opcional: "./images/gallery/02.webp"
       },
       {
         id: 3,
@@ -117,7 +122,8 @@ export const experienceData = {
         date: "[FECHA REGISTRO 03]",
         caption: "Simplemente tú.",
         description: "[Aquí irá el texto sobre lo increíble y natural que te ves aquí.]",
-        imagePlaceholder: "[Foto del Registro 03]"
+        imagePlaceholder: "[Foto del Registro 03]",
+        image: "" // Ruta opcional: "./images/gallery/03.webp"
       }
     ],
     buttonText: "CONTINUAR EL VIAJE",
@@ -232,6 +238,7 @@ export const experienceData = {
     specialPhotoTitle: "Ahora sí.",
     specialPhotoPlaceholder: "[FOTO ESPECIAL: Aquella imagen que no podía faltar]",
     specialPhotoCaption: "Esta fotografía también tenía que estar aquí.",
+    specialPhoto: "", // Ruta opcional: "./images/letter/especial.webp"
     
     // Sobre y Carta
     envelopeTitle: "Hay algo que quiero decirte.",
