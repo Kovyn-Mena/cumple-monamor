@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react'
+import React, { useState } from 'react'
 import AmbientBackground from './components/AmbientBackground'
 import Screen01Intro from './sections/Screen01Intro'
 import Screen02Welcome from './sections/Screen02Welcome'
@@ -20,6 +20,8 @@ function App() {
   // Índice de pantalla actual: 1 a 9
   const [currentScreen, setCurrentScreen] = useState(1)
   const [isTransitioning, setIsTransitioning] = useState(false)
+  // Llave de sesión para restablecer completamente todos los estados internos de los componentes
+  const [sessionKey, setSessionKey] = useState(0)
 
   // Función de navegación fluida
   const goToScreen = (screenNumber) => {
@@ -34,6 +36,20 @@ function App() {
     }, 450)
   }
 
+  // Reinicio elegante de toda la experiencia
+  const handleRestart = () => {
+    if (isTransitioning) return
+    setIsTransitioning(true)
+
+    setTimeout(() => {
+      // Incrementar sessionKey fuerza el re-montaje limpio de todos los componentes
+      setSessionKey(prev => prev + 1)
+      setCurrentScreen(1)
+      setIsTransitioning(false)
+      window.scrollTo({ top: 0, behavior: 'instant' })
+    }, 450)
+  }
+
   return (
     <>
       {/* Fondo inmersivo con iluminación ambiental violeta y partículas */}
@@ -41,7 +57,7 @@ function App() {
 
       {/* Contenedor central mobile-first */}
       <main className="experience-wrapper">
-        <div className={`screen-transition ${isTransitioning ? 'exiting' : 'entering'}`}>
+        <div key={sessionKey} className={`screen-transition ${isTransitioning ? 'exiting' : 'entering'}`}>
           {currentScreen === 1 && (
             <Screen01Intro onNext={() => goToScreen(2)} />
           )}
@@ -97,7 +113,7 @@ function App() {
 
           {currentScreen === 9 && (
             <Screen09Final 
-              onRestart={() => goToScreen(1)} 
+              onRestart={handleRestart} 
             />
           )}
         </div>

@@ -152,7 +152,7 @@ export const experienceData = {
         revealedText: "[Aquí irá una tercera cosa que amo de ti: la calma infinita que encuentro cuando estoy a tu lado.]"
       }
     ],
-    allRevealedNotice: "Todos los secretos han sido descubiertos.",
+    allRevealedNotice: "[Frase final: Todos los secretos han sido descubiertos y cada uno de ellos te pertenece.]",
     buttonText: "SIGUIENTE RETO",
     backText: "Volver al archivo"
   },
@@ -254,6 +254,6 @@ export const experienceData = {
     title: "Feliz Cumpleaños, Paula",
     finalMessage: "[Mensaje final: Gracias por existir y por ser mi persona favorita en este mundo.]",
     closingWords: "Te quiero.",
-    restartButtonText: "↻ Volver a empezar"
+    restartButtonText: "↻ Volver al principio"
   }
 }

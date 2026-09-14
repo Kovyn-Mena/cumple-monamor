@@ -1,24 +1,37 @@
-﻿import React, { useState } from 'react'
+import React, { useState } from 'react'
 import { experienceData } from '../data/experienceData'
 
 /**
  * Screen05LoveCards — Pantalla 5: Cosas que amo de ti
- * - Tarjetas interactivas que ocultan un secreto.
- * - Al tocar cada tarjeta, se despliega suavemente el mensaje íntimo con un resplandor violeta.
- * - Contador de descubrimientos para enriquecer la experiencia interactiva.
+ * - Revelaciones progresivas táctiles y accesibles.
+ * - Tarjetas inicialmente cerradas que se descubren al tocarlas.
+ * - Una tarjeta revelada permanece abierta para evitar cierres accidentales.
+ * - Contador de descubrimientos dinámico y banner poético final al revelar todas.
  */
 export default function Screen05LoveCards({ onNext, onBack }) {
-  const data = experienceData.screen05
-  // Guardamos los IDs de las tarjetas descubiertas
+  const data = experienceData.screen05 || {}
+  const cards = Array.isArray(data.cards) ? data.cards : []
+  
+  // IDs de las tarjetas descubiertas
   const [revealedIds, setRevealedIds] = useState([])
 
-  const toggleCard = (id) => {
-    setRevealedIds(prev => 
-      prev.includes(id) ? prev.filter(item => item !== id) : [...prev, id]
-    )
+  const revealCard = (id) => {
+    setRevealedIds(prev => {
+      if (prev.includes(id)) return prev
+      return [...prev, id]
+    })
   }
 
-  const allRevealed = revealedIds.length === data.cards.length
+  const handleKeyDown = (e, id) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
+      revealCard(id)
+    }
+  }
+
+  const totalCards = cards.length
+  const revealedCount = revealedIds.filter(id => cards.some(c => c.id === id)).length
+  const allRevealed = totalCards > 0 && revealedCount >= totalCards
 
   return (
     <div className="screen-layout love-cards-section">
@@ -32,27 +45,28 @@ export default function Screen05LoveCards({ onNext, onBack }) {
 
       {/* Indicador de progreso de descubrimiento */}
       <div className="discovery-counter">
-        <span>Secretos revelados: {revealedIds.length} de {data.cards.length}</span>
+        <span>Secretos revelados: {revealedCount} de {totalCards}</span>
       </div>
 
       {/* Grid de tarjetas interactivas */}
       <div className="love-cards-grid">
-        {data.cards.map((card) => {
+        {cards.map((card) => {
           const isRevealed = revealedIds.includes(card.id)
 
           return (
             <div
               key={card.id}
-              className={`love-card ${isRevealed ? 'is-revealed' : ''}`}
-              onClick={() => toggleCard(card.id)}
+              className={`love-card ${isRevealed ? 'is-revealed' : 'is-closed'}`}
+              onClick={() => revealCard(card.id)}
+              onKeyDown={(e) => handleKeyDown(e, card.id)}
               role="button"
               tabIndex={0}
               aria-expanded={isRevealed}
-              aria-label={`Tarjeta ${card.number}: ${isRevealed ? card.revealedTitle : card.teaser}`}
+              aria-label={`Tarjeta ${card.number}: ${isRevealed ? card.revealedTitle : (card.teaser || 'Toca para descubrir')}`}
             >
               <div className="love-card-header">
                 <span className="love-card-number">{card.number}</span>
-                <span className="love-card-state-icon">
+                <span className="love-card-state-icon" aria-hidden="true">
                   {isRevealed ? '🔮' : '✦'}
                 </span>
               </div>
@@ -60,8 +74,8 @@ export default function Screen05LoveCards({ onNext, onBack }) {
               {!isRevealed ? (
                 /* Estado Oculto */
                 <div className="love-card-teaser">
-                  <span className="teaser-text">{card.teaser}</span>
-                  <span className="teaser-hint">Toca para abrir</span>
+                  <span className="teaser-text">{card.teaser || 'Toca para descubrir'}</span>
+                  <span className="teaser-hint">{card.number} / abrir</span>
                 </div>
               ) : (
                 /* Estado Revelado */
@@ -75,10 +89,18 @@ export default function Screen05LoveCards({ onNext, onBack }) {
         })}
       </div>
 
+      {/* Mensaje final al completar todos los secretos */}
+      {allRevealed && data.allRevealedNotice && (
+        <div className="all-revealed-banner" role="status" aria-live="polite">
+          <span className="banner-sparkle" aria-hidden="true">✦</span>
+          <p className="banner-text">{data.allRevealedNotice}</p>
+        </div>
+      )}
+
       {/* Acciones de navegación */}
       <div className="section-actions">
         <button 
-          className="btn-gothic-primary" 
+          className={`btn-gothic-primary ${allRevealed ? 'is-unlocked' : ''}`}
           onClick={onNext}
           aria-label="Ir al mini-juego"
         >
