@@ -29,12 +29,7 @@ export const experienceData = {
     "./images/intro/paula-07.webp",
     "./images/intro/paula-08.webp",
     "./images/intro/paula-09.webp",
-    "./images/intro/paula-10.webp",
-    "./images/intro/paula-11.webp",
-    "./images/intro/paula-12.webp",
-    "./images/intro/paula-13.webp",
-    "./images/intro/paula-14.webp",
-    "./images/intro/paula-15.webp"
+    "./images/intro/paula-10.webp"
   ],
 
   // PANTALLA 2: BIENVENIDA

@@ -39,7 +39,7 @@ export default function Screen01Intro({ onNext }) {
         <IntroPhotoRain 
           photos={photoList} 
           onComplete={handleRainComplete} 
-          durationMs={2700}
+          durationMs={3700}
         />
       )}
 
