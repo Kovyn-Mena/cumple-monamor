@@ -256,6 +256,14 @@ export const experienceData = {
     title: "Feliz Cumpleaños, Paula",
     finalMessage: "[Mensaje final: Gracias por existir y por ser mi persona favorita en este mundo.]",
     closingWords: "Te quiero.",
+    
+    // Regalo extra / Felicitación en video
+    specialBonusTriggerText: "¿Por si no te han felicitado lo suficiente?",
+    specialBonusTitle: "Un regalo más...",
+    specialBonusMessage: "Preparé algo especial para ti. Toca el botón para verlo:",
+    specialBonusButtonText: "Ver video especial",
+    specialBonusUrl: "https://www.youtube.com", // Aquí puedes pegar el link del video de YouTube que vas a subir
+
     restartButtonText: "↻ Volver al principio"
   }
 }
