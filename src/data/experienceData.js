@@ -83,77 +83,77 @@ export const experienceData = {
     backText: "Volver a la bienvenida"
   },
 
-  // PANTALLA 4: ARCHIVO DE NOSOTROS (Galería Personal)
+  // PANTALLA 4: ARCHIVO // ELLA (Galería Personal de Facetas de Paula)
   screen04: {
     tag: "Capítulo II",
-    title: "Archivo // Nosotros",
-    subtitle: "Registros de instantes que el tiempo no borra.",
+    title: "Archivo // Ella",
+    subtitle: "Registros de instantes donde fuiste puramente tú.",
     whisper: "todavía falta una foto por encontrar...",
     memories: [
       {
         id: 1,
         code: "01",
-        title: "El Comienzo",
+        title: "Tu mejor ángulo",
         date: "[FECHA REGISTRO 01]",
-        caption: "Esta me gusta porque...",
-        description: "[Aquí irá el texto explicando por qué esta foto es especial.]",
-        imagePlaceholder: "[Foto del Registro 01]",
-        image: "" // Ruta opcional: "./images/gallery/01.webp"
+        caption: "Esa sonrisa que lo cambia todo.",
+        description: "[Aquí pon por qué te encanta esta foto suya: su mirada, su estilo o la seguridad que transmite.]",
+        imagePlaceholder: "[Foto de su mejor ángulo]",
+        image: "" // Ruta: "./images/gallery/01.webp" (o .jpg / .png)
       },
       {
         id: 2,
         code: "02",
-        title: "Tardes Compartidas",
+        title: "En tu elemento",
         date: "[FECHA REGISTRO 02]",
-        caption: "Uno de mis recuerdos favoritos.",
-        description: "[Aquí irá el texto recordando las risas y la complicidad de ese día.]",
-        imagePlaceholder: "[Foto del Registro 02]",
-        image: "" // Ruta opcional: "./images/gallery/02.webp"
+        caption: "Haciendo lo que más te apasiona.",
+        description: "[Aquí pon qué hacía en esta foto: trabajando en lo suyo, estudiando, comiendo algo rico o en su hobby.]",
+        imagePlaceholder: "[Foto en su elemento]",
+        image: "" // Ruta: "./images/gallery/02.webp" (o .jpg / .png)
       },
       {
         id: 3,
         code: "03",
-        title: "En Cualquier Rincón",
+        title: "Espontánea & Caótica",
         date: "[FECHA REGISTRO 03]",
-        caption: "Simplemente tú.",
-        description: "[Aquí irá el texto sobre lo increíble y natural que te ves aquí.]",
-        imagePlaceholder: "[Foto del Registro 03]",
-        image: "" // Ruta opcional: "./images/gallery/03.webp"
+        caption: "Simplemente tú siendo tú.",
+        description: "[Aquí pon una anécdota divertida o esa cara graciosa/auténtica que solo tú sabes capturar.]",
+        imagePlaceholder: "[Foto espontánea o graciosa]",
+        image: "" // Ruta: "./images/gallery/03.webp" (o .jpg / .png)
       }
     ],
     buttonText: "CONTINUAR EL VIAJE",
     backText: "Volver a nuestra historia"
   },
 
-  // PANTALLA 5: COSAS QUE AMO DE TI (Descubrimiento Progresivo)
+  // PANTALLA 5: LO QUE TE HACE ÚNICA (Superpoderes y Virtudes de Paula)
   screen05: {
     tag: "Capítulo III",
-    title: "Cosas que amo de ti",
-    subtitle: "Pequeños secretos que encuentro en ti cada día.",
+    title: "Lo que te hace única",
+    subtitle: "Pequeños superpoderes que llevas contigo a donde vas.",
     cards: [
       {
         id: 1,
         number: "01",
         teaser: "Toca para descubrir",
-        revealedTitle: "Tu forma de iluminar",
-        revealedText: "[Aquí irá una cosa que amo de ti: por ejemplo, tu risa, tu bondad o tu forma de mirar.]"
+        revealedTitle: "Tu determinación y fuerza",
+        revealedText: "[Aquí escribe sobre su perseverancia para lograr lo que se propone y cómo nunca se rinde ante los retos.]"
       },
       {
         id: 2,
         number: "02",
         teaser: "Toca para descubrir",
-        revealedTitle: "Tu complicidad",
-        revealedText: "[Aquí irá una segunda cosa que amo de ti: cómo entendemos todo sin decir una sola palabra.]"
+        revealedTitle: "Tu luz y espontaneidad",
+        revealedText: "[Aquí escribe sobre cómo su risa, sus ocurrencias y su energía llenan cualquier lugar.]"
       },
       {
         id: 3,
         number: "03",
         teaser: "Toca para descubrir",
-        revealedTitle: "Nuestros momentos de paz",
-        revealedText: "[Aquí irá una tercera cosa que amo de ti: la calma infinita que encuentro cuando estoy a tu lado.]"
+        revealedTitle: "Tu nobleza de corazón",
+        revealedText: "[Aquí escribe sobre la forma tan genuina y bonita en la que cuidas y te preocupas por los que quieres.]"
       }
     ],
-    allRevealedNotice: "[Frase final: Todos los secretos han sido descubiertos y cada uno de ellos te pertenece.]",
+    allRevealedNotice: "Todas estas cosas hacen que este mundo sea un lugar mucho más bonito contigo en él.",
     buttonText: "SIGUIENTE RETO",
     backText: "Volver al archivo"
   },
@@ -215,36 +215,36 @@ export const experienceData = {
     secretTriggerSymbol: "✦",
     discoveredTag: "Acceso Concedido",
     discoveredTitle: "Ok, sí. Esto estaba escondido a propósito.",
-    surpriseContent: "[Aquí irá la sorpresa: una promesa, un detalle oculto o una memoria guardada especialmente para ti.]",
+    surpriseContent: "[Aquí irá la sorpresa: una promesa, un detalle oculto o un deseo especial de cumpleaños para ti.]",
     buttonText: "AVANZAR",
     backText: "Volver al quiz"
   },
 
-  // PANTALLA 8: CONFESIÓN, FOTO ESPECIAL Y LA CARTA
+  // PANTALLA 8: CONFESIÓN, FOTO ESPECIAL Y LA CARTA DE CUMPLEAÑOS
   screen08: {
     tag: "Capítulo V",
     // Pausa emocional previa
-    confessionTitle: "Hay algo que no sabía cómo poner en esta página...",
-    confessionSubtitle: "Así que simplemente voy a decirlo:",
-    confessionBody: "[Aquí irá una pequeña confesión o mensaje íntimo antes de la carta.]",
+    confessionTitle: "Antes de que termine tu día...",
+    confessionSubtitle: "Quería recordarte algo importante:",
+    confessionBody: "[Aquí pon unas palabras reconociendo la increíble persona en la que te has convertido este año y lo orgulloso que estoy de ti.]",
     
     // Foto especial reservada
-    specialPhotoBadge: "Archivo // Registro Final",
-    specialPhotoTitle: "Ahora sí.",
-    specialPhotoPlaceholder: "[FOTO ESPECIAL: Aquella imagen que no podía faltar]",
-    specialPhotoCaption: "Esta fotografía también tenía que estar aquí.",
-    specialPhoto: "", // Ruta opcional: "./images/letter/especial.webp"
+    specialPhotoBadge: "Archivo // El Retrato",
+    specialPhotoTitle: "La foto que mejor te define",
+    specialPhotoPlaceholder: "[FOTO ESPECIAL DE PAULA]",
+    specialPhotoCaption: "Esta fotografía captura exactamente quién eres.",
+    specialPhoto: "", // Ruta: "./images/letter/especial.webp" (o .jpg / .png)
     
     // Sobre y Carta
-    envelopeTitle: "Hay algo que quiero decirte.",
+    envelopeTitle: "Hay algo que quiero decirte hoy.",
     openButtonText: "ABRIR CARTA",
     letterGreeting: "Querida Paula,",
     letterBody: [
-      "[Párrafo 1 de la carta: Aquí escribiré lo que significas para mí y cómo haces especial cada día.]",
-      "[Párrafo 2 de la carta: Recordando momentos y agradeciendo por todo lo compartido.]",
-      "[Párrafo 3 de la carta: Palabras de cierre llenas de cariño y buenos deseos.]"
+      "[Párrafo 1: Feliz cumpleaños. Hoy celebramos tu vida, tu risa y todo lo increíble que traes a este mundo.]",
+      "[Párrafo 2: Admiro la mujer en la que te has convertido, lo mucho que te esfuerzas cada día y cada uno de tus sueños.]",
+      "[Párrafo 3: Que este nuevo año de vida venga lleno de éxitos, paz y momentos que te hagan sonreír cada día.]"
     ],
-    letterSignature: "Siempre tuyo,",
+    letterSignature: "Con todo mi cariño y admiración,",
     author: "Kovyn",
     buttonText: "VER MENSAJE FINAL",
     backText: "Volver al secreto"

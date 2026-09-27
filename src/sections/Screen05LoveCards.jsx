@@ -45,7 +45,7 @@ export default function Screen05LoveCards({ onNext, onBack }) {
 
       {/* Indicador de progreso de descubrimiento */}
       <div className="discovery-counter">
-        <span>Secretos revelados: {revealedCount} de {totalCards}</span>
+        <span>Descubiertas: {revealedCount} de {totalCards}</span>
       </div>
 
       {/* Grid de tarjetas interactivas */}

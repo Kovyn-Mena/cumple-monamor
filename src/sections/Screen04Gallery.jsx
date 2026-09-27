@@ -86,7 +86,7 @@ export default function Screen04Gallery({ onNext, onBack }) {
         <button 
           className="btn-gothic-primary" 
           onClick={onNext}
-          aria-label="Continuar a las cosas que amo de ti"
+          aria-label="Continuar a lo que te hace única"
         >
           <span>{data.buttonText}</span>
         </button>
