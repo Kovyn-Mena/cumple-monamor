@@ -32,27 +32,27 @@ export const experienceData = {
   screen02: {
     tag: "Antes de empezar",
     title: "Una pequeña dedicatoria",
-    message1: "No sabía muy bien cómo hacerte un regalo que pudiera guardar todo lo que quería decirte.",
-    message2: "Así que construí este pequeño rincón, un lugar oscuro y tranquilo, hecho solo para ti.",
+    message1: "No sabía muy bien cómo hacerlo, pero sabía que era algo que habías visto, que querías y que te gustaría.",
+    message2: "Así que, aunque no es perfecto, aquí tengo este pequeño lugar para ti.",
     whisper: "sigue.",
     buttonText: "CONTINUAR",
     backText: "Volver al inicio"
   },
 
-  // PANTALLA 3: NUESTRA HISTORIA (Timeline)
+  // PANTALLA 3: TIMELINE
   screen03: {
     tag: "Capítulo I",
-    title: "Nuestra Historia",
+    title: "¿Recuerdas los días que empezaron esto?",
     subtitle: "Los momentos que nos trajeron hasta aquí.",
     events: [
       {
         id: 1,
         step: "01",
-        title: "El Comienzo",
-        date: "[FECHA INICIAL]",
-        description: "[Aquí escribiré cómo nos conocimos o el primer recuerdo especial juntos.]",
+        title: "¿Elecciones? ¿Tatuaje? ¿P y K?",
+        date: "26 de febrero del 2026",
+        description: "Un día que quizás en ese momento pasó desapercibido.",
         imagePlaceholder: "[Foto del primer momento]",
-        image: "" // Ruta opcional: "./images/timeline/01.webp"
+        image: "./images/timeline/01.jpeg"
       },
       {
         id: 2,
@@ -61,7 +61,7 @@ export const experienceData = {
         date: "[FECHA DEL RECUERDO]",
         description: "[Aquí irá la anécdota o ese momento donde supimos que esto era único.]",
         imagePlaceholder: "[Foto de aquel día]",
-        image: "" // Ruta opcional: "./images/timeline/02.webp"
+        image: "./images/timeline/02.jpeg"
       },
       {
         id: 3,
@@ -70,7 +70,7 @@ export const experienceData = {
         date: "[FECHA DEL VIAJE]",
         description: "[Aquí irá la historia de una escapada, salida o noche inolvidable.]",
         imagePlaceholder: "[Foto de la aventura]",
-        image: "" // Ruta opcional: "./images/timeline/03.webp"
+        image: "./images/timeline/03.jpeg"
       }
     ],
     closingText: "Y de alguna manera llegamos hasta aquí...",
