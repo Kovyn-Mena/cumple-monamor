@@ -261,7 +261,7 @@ export const experienceData = {
     // Regalo extra / Felicitación en video
     specialBonusTriggerText: "¿Por si no te han felicitado lo suficiente?",
     specialBonusTitle: "Un regalo más...",
-    specialBonusMessage: "Preparé algo especial para ti. Toca el botón para verlo:",
+    specialBonusMessage: "Preparé algo un poco random para ti, toca el botón para verlo:",
     specialBonusButtonText: "Ver video especial",
     specialBonusUrl: "https://www.youtube.com", // Aquí puedes pegar el link del video de YouTube que vas a subir
 
