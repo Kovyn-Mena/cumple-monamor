@@ -18,18 +18,14 @@ export const experienceData = {
   },
 
   // LLUVIA DE FOTOGRAFÍAS (Transición al pulsar ENTRAR)
-  // Coloca tus imágenes .webp en public/images/intro/ y agrega sus rutas aquí.
   introPhotoRain: [
-    "./images/intro/paula-01.webp",
-    "./images/intro/paula-02.webp",
-    "./images/intro/paula-03.webp",
-    "./images/intro/paula-04.webp",
-    "./images/intro/paula-05.webp",
-    "./images/intro/paula-06.webp",
-    "./images/intro/paula-07.webp",
-    "./images/intro/paula-08.webp",
-    "./images/intro/paula-09.webp",
-    "./images/intro/paula-10.webp"
+    "./images/intro/paula-01.jpeg",
+    "./images/intro/paula-02.jpeg",
+    "./images/intro/paula-03.jpeg",
+    "./images/intro/paula-04.jpeg",
+    "./images/intro/paula-05.jpeg",
+    "./images/intro/paula-06.jpeg",
+    "./images/intro/paula-07.jpeg"
   ],
 
   // PANTALLA 2: BIENVENIDA
