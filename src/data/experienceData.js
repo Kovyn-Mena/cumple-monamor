@@ -162,14 +162,15 @@ export const experienceData = {
     questions: [
       {
         id: 1,
-        question: "¿Dónde ocurrió [MOMENTO ESPECIAL 1]?",
+        question: "¿Quién es más bebé?",
         options: [
-          "[Opción A: Lugar incorrecto]",
-          "[Opción B: Respuesta correcta]",
-          "[Opción C: Otro lugar incorrecto]"
+          "Luna",
+          "Coco",
+          "Paris"
         ],
-        correctIndex: 1,
-        successMessage: "Sabía que te acordabas. ♡",
+        allCorrect: true,
+        correctIndex: 0,
+        successMessage: "¡Todas! Son unos súper bebés, ¿por qué elegirías una? ♡",
         failMessage: "Casi... pero estuviste muy cerca."
       },
       {

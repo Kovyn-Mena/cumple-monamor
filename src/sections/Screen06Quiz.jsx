@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react'
+import React, { useState } from 'react'
 import { experienceData } from '../data/experienceData'
 
 /**
@@ -18,13 +18,14 @@ export default function Screen06Quiz({ onNext, onBack }) {
   const [answeredHistory, setAnsweredHistory] = useState([])
 
   const currentQ = questions[questionIndex]
+  const isQuestionAllCorrect = Boolean(currentQ?.allCorrect || currentQ?.correctIndex === 'all')
 
   const handleSelectOption = (index) => {
     if (isAnswered) return
     setSelectedOption(index)
     setIsAnswered(true)
-    const isCorrect = index === currentQ.correctIndex
-    setAnsweredHistory(prev => [...prev, isCorrect])
+    const isSuccess = isQuestionAllCorrect || index === currentQ.correctIndex
+    setAnsweredHistory(prev => [...prev, isSuccess])
   }
 
   const handleNextQuestion = () => {
@@ -45,7 +46,7 @@ export default function Screen06Quiz({ onNext, onBack }) {
     setAnsweredHistory([])
   }
 
-  const isCorrect = selectedOption === currentQ?.correctIndex
+  const isCorrect = isQuestionAllCorrect || selectedOption === currentQ?.correctIndex
 
   return (
     <div className="screen-layout quiz-section">
@@ -86,7 +87,7 @@ export default function Screen06Quiz({ onNext, onBack }) {
             {currentQ.options.map((option, idx) => {
               let optionClass = 'quiz-option-btn'
               if (isAnswered) {
-                if (idx === currentQ.correctIndex) {
+                if (isQuestionAllCorrect || idx === currentQ.correctIndex) {
                   optionClass += ' is-correct'
                 } else if (idx === selectedOption) {
                   optionClass += ' is-wrong'
