@@ -89,32 +89,32 @@ export const experienceData = {
       {
         id: 1,
         code: "01",
-        title: "Tu mejor ángulo",
-        date: "[FECHA REGISTRO 01]",
-        caption: "Esa sonrisa que lo cambia todo.",
-        description: "[Aquí pon por qué te encanta esta foto suya: su mirada, su estilo o la seguridad que transmite.]",
+        title: "¿Feli feli?",
+        date: "",
+        caption: "La sonrisa que quiero ver toda la vida.",
+        description: "Nada me hace más feliz que verte sonreír.",
         imagePlaceholder: "[Foto de su mejor ángulo]",
-        image: "" // Ruta: "./images/gallery/01.webp" (o .jpg / .png)
+        image: "./images/gallery/01.jpeg"
       },
       {
         id: 2,
         code: "02",
-        title: "En tu elemento",
-        date: "[FECHA REGISTRO 02]",
-        caption: "Haciendo lo que más te apasiona.",
-        description: "[Aquí pon qué hacía en esta foto: trabajando en lo suyo, estudiando, comiendo algo rico o en su hobby.]",
+        title: "¿Pintura?",
+        date: "",
+        caption: "¿Una artista en su campo?",
+        description: "Nuestro cultural-artist moment jajaj.",
         imagePlaceholder: "[Foto en su elemento]",
-        image: "" // Ruta: "./images/gallery/02.webp" (o .jpg / .png)
+        image: "./images/gallery/02.jpeg"
       },
       {
         id: 3,
         code: "03",
-        title: "Espontánea & Caótica",
-        date: "[FECHA REGISTRO 03]",
-        caption: "Simplemente tú siendo tú.",
-        description: "[Aquí pon una anécdota divertida o esa cara graciosa/auténtica que solo tú sabes capturar.]",
-        imagePlaceholder: "[Foto espontánea o graciosa]",
-        image: "" // Ruta: "./images/gallery/03.webp" (o .jpg / .png)
+        title: "Dos bebés",
+        date: "",
+        caption: "Doble ternura.",
+        description: "Una bebé con otra bebé.",
+        imagePlaceholder: "[Foto espontánea]",
+        image: "./images/gallery/03.jpeg"
       }
     ],
     buttonText: "CONTINUAR EL VIAJE",
@@ -229,7 +229,7 @@ export const experienceData = {
     specialPhotoTitle: "La foto que mejor te define",
     specialPhotoPlaceholder: "[FOTO ESPECIAL DE PAULA]",
     specialPhotoCaption: "Esta fotografía captura exactamente quién eres.",
-    specialPhoto: "", // Ruta: "./images/letter/especial.webp" (o .jpg / .png)
+    specialPhoto: "./images/letter/especial.jpeg",
     
     // Sobre y Carta
     envelopeTitle: "Hay algo que quiero decirte hoy.",

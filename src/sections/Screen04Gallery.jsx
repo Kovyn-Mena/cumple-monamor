@@ -54,7 +54,7 @@ export default function Screen04Gallery({ onNext, onBack }) {
         <article className="gothic-card archive-detail-card" key={activeMemory.id}>
           <div className="archive-card-header">
             <span className="archive-entry-code">REGISTRO #{activeMemory.code}</span>
-            <span className="event-date">{activeMemory.date}</span>
+            {activeMemory.date && <span className="event-date">{activeMemory.date}</span>}
           </div>
 
           {/* Marco fotográfico o imagen real */}
