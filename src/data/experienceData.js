@@ -263,7 +263,7 @@ export const experienceData = {
     specialBonusTitle: "Un regalo más...",
     specialBonusMessage: "Preparé algo un poco random para ti, toca el botón para verlo:",
     specialBonusButtonText: "Ver video especial",
-    specialBonusUrl: "https://www.youtube.com", // Aquí puedes pegar el link del video de YouTube que vas a subir
+    specialBonusUrl: "https://youtu.be/j7FJg4DMFOI",
 
     restartButtonText: "↻ Volver al principio"
   }

@@ -32,7 +32,9 @@ function App() {
       setCurrentScreen(screenNumber)
       setIsTransitioning(false)
       // Scroll automático al inicio en cada cambio de pantalla para Safari / iPhone
-      window.scrollTo({ top: 0, behavior: 'instant' })
+      window.scrollTo(0, 0)
+      if (document.documentElement) document.documentElement.scrollTop = 0
+      if (document.body) document.body.scrollTop = 0
     }, 450)
   }
 
@@ -46,7 +48,9 @@ function App() {
       setSessionKey(prev => prev + 1)
       setCurrentScreen(1)
       setIsTransitioning(false)
-      window.scrollTo({ top: 0, behavior: 'instant' })
+      window.scrollTo(0, 0)
+      if (document.documentElement) document.documentElement.scrollTop = 0
+      if (document.body) document.body.scrollTop = 0
     }, 450)
   }
 
