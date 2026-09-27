@@ -111,7 +111,7 @@ export const experienceData = {
         code: "03",
         title: "Dos bebés",
         date: "",
-        caption: "Doble ternura.",
+        caption: "Simplemente tú siendo tú.",
         description: "Una bebé con otra bebé.",
         imagePlaceholder: "[Foto espontánea]",
         image: "./images/gallery/03.jpeg"
