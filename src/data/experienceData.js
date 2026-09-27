@@ -131,22 +131,22 @@ export const experienceData = {
         id: 1,
         number: "01",
         teaser: "Toca para descubrir",
-        revealedTitle: "Tu determinación y fuerza",
-        revealedText: "[Aquí escribe sobre su perseverancia para lograr lo que se propone y cómo nunca se rinde ante los retos.]"
+        revealedTitle: "La forma en que haces sentir a las personas que quieres",
+        revealedText: "Tienes una manera muy tuya de demostrar cariño y ser tú en sí, incluso en cosas pequeñas que quizá ni notas, pero que terminan significando muchísimo para todos los que te rodeamos."
       },
       {
         id: 2,
         number: "02",
         teaser: "Toca para descubrir",
-        revealedTitle: "Tu luz y espontaneidad",
-        revealedText: "[Aquí escribe sobre cómo su risa, sus ocurrencias y su energía llenan cualquier lugar.]"
+        revealedTitle: "Tu forma de ser cuando tienes confianza",
+        revealedText: "Esa versión tuya que sale cuando estás cómoda o incluso ahora que te conozco más; la versión de ti que eres cuando estamos solos, con tus acciones tiernas y espontáneas o las tonterías que solo a ti se te ocurriría decir. Es una parte de ti que no se ve tan seguido con los demás, pero es muy linda y me hace pensar cada día más en que estoy en el lugar correcto."
       },
       {
         id: 3,
         number: "03",
         teaser: "Toca para descubrir",
-        revealedTitle: "Tu nobleza de corazón",
-        revealedText: "[Aquí escribe sobre la forma tan genuina y bonita en la que cuidas y te preocupas por los que quieres.]"
+        revealedTitle: "La manera en que conviertes momentos normales en recuerdos",
+        revealedText: "Contigo muchas veces no tiene que estar pasando nada extraordinario para que un momento termine siendo especial. Incluso antes de que nuestro vínculo se convirtiera en algo más, cada momento contigo se sentía memorable y todos son recuerdos que tienen un lugar especial en mi corazón."
       }
     ],
     allRevealedNotice: "Todas estas cosas hacen que este mundo sea un lugar mucho más bonito contigo en él.",
