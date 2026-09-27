@@ -1251,6 +1251,7 @@
   padding: 28px 20px;
   box-shadow: 0 10px 32px rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .confession-text {
@@ -1600,6 +1601,7 @@
   max-width: 340px;
   background: rgba(22, 13, 36, 0.85);
   backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(192, 132, 252, 0.35);
   border-radius: var(--radius-md);
   padding: 22px 20px;

@@ -255,8 +255,8 @@ export const experienceData = {
   screen09: {
     tag: "Para Siempre",
     title: "Feliz Cumpleaños, Paula",
-    finalMessage: "[Mensaje final: Gracias por existir y por ser mi persona favorita en este mundo.]",
-    closingWords: "Te quiero.",
+    finalMessage: "Gracias por existir y por ser mi persona favorita en este mundo.",
+    closingWords: "Te amo.",
     
     // Regalo extra / Felicitación en video
     specialBonusTriggerText: "¿Por si no te han felicitado lo suficiente?",
