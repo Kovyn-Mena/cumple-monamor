@@ -198,10 +198,10 @@ export const experienceData = {
         failMessage: "Casi... fue una pequeña trampa."
       }
     ],
-    unlockTitle: "3/3 recuerdos recuperados",
-    unlockMessage: "Creo que ya estás lista para lo que sigue.",
+    unlockTitle: "3/3 correctas",
+    unlockMessage: "Creo que ya estás lista para continuar.",
     buttonText: "CONTINUAR",
-    backText: "Volver a cosas que amo"
+    backText: "Volver al archivo"
   },
 
   // PANTALLA 7: SECCIÓN SECRETA (Anomalía y Descubrimiento)

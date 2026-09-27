@@ -137,7 +137,9 @@ export default function Screen06Quiz({ onNext, onBack }) {
             <span>ACCESO DESBLOQUEADO</span>
           </div>
 
-          <h3 className="card-title">{data.unlockTitle}</h3>
+          <h3 className="card-title">
+            {answeredHistory.filter(Boolean).length}/{questions.length} correctas
+          </h3>
           
           <p className="poetic-paragraph">
             "{data.unlockMessage}"
@@ -169,7 +171,7 @@ export default function Screen06Quiz({ onNext, onBack }) {
           <button 
             className="btn-gothic-ghost" 
             onClick={onBack}
-            aria-label="Volver a cosas que amo"
+            aria-label="Volver a la sección anterior"
           >
             ← {data.backText}
           </button>
