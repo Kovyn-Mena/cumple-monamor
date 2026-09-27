@@ -27,7 +27,7 @@ export default function Screen08Letter({ onNext, onBack }) {
       {phase === 'confession' && (
         <div className="confession-box">
           <h3 className="confession-title">{data.confessionTitle}</h3>
-          <p className="confession-subtitle">{data.confessionSubtitle}</p>
+          {data.confessionSubtitle && <p className="confession-subtitle">{data.confessionSubtitle}</p>}
           
           <div className="confession-body-card">
             <p className="confession-text">

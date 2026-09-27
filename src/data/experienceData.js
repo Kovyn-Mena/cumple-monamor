@@ -175,27 +175,32 @@ export const experienceData = {
       },
       {
         id: 2,
-        question: "¿Cuál fue la primera [COMIDA / PELÍCULA / CANCIÓN] que compartimos?",
+        question: "¿Qué te gusta más?",
         options: [
-          "[Opción A: Respuesta correcta]",
-          "[Opción B: Opción incorrecta]",
-          "[Opción C: Otra opción incorrecta]"
+          "Hamburguesa",
+          "Dulce",
+          "Yo"
         ],
-        correctIndex: 0,
-        successMessage: "¡Exacto! Memoria intacta.",
-        failMessage: "Por poco... pero cuenta la intención."
+        correctIndex: 2,
+        successMessage: "Sabía que ibas a elegir bien. ♡",
+        failMessage: "Muy mal, lo que más te gusta soy yo 😾"
       },
       {
         id: 3,
-        question: "¿Quién [HIZO / DIJO] esto primero?",
+        question: "¿Quién BESÓ primero al otro?",
         options: [
-          "[Opción A: Paula]",
-          "[Opción B: Yo]",
-          "[Opción C: Los dos al mismo tiempo]"
+          "Kovyn",
+          "Paula",
+          "No me acuerdo"
         ],
-        correctIndex: 2,
-        successMessage: "Inconfundible. Lo sabíamos los dos.",
-        failMessage: "Casi... fue una pequeña trampa."
+        correctIndex: 1,
+        successMessage: "Sabía que lo admitirías. ♡",
+        failMessage: "Casi... pero no.",
+        failMessages: [
+          "Ese piquito no cuenta.",
+          "",
+          "nomehables"
+        ]
       }
     ],
     unlockTitle: "3/3 correctas",
@@ -212,7 +217,7 @@ export const experienceData = {
     secretTriggerSymbol: "✦",
     discoveredTag: "Acceso Concedido",
     discoveredTitle: "Ok, sí. Esto estaba escondido a propósito.",
-    surpriseContent: "[Aquí irá la sorpresa: una promesa, un detalle oculto o un deseo especial de cumpleaños para ti.]",
+    surpriseContent: "prometo hacer lo posible para hacerte feliz, te kiero mucho amor mío",
     buttonText: "AVANZAR",
     backText: "Volver al quiz"
   },
@@ -222,24 +227,23 @@ export const experienceData = {
     tag: "Capítulo V",
     // Pausa emocional previa
     confessionTitle: "Antes de que termine tu día...",
-    confessionSubtitle: "Quería recordarte algo importante:",
-    confessionBody: "[Aquí pon unas palabras reconociendo la increíble persona en la que te has convertido este año y lo orgulloso que estoy de ti.]",
+    confessionSubtitle: "",
+    confessionBody: "Aunque no todo salga bien o como quieres, quiero que la pases bien el resto de tu día amor. Sé feliz y sé la niña que siempre has sido. Gracias por iluminarnos a todos con tu brillo. Muak.",
     
     // Foto especial reservada
     specialPhotoBadge: "Archivo // El Retrato",
-    specialPhotoTitle: "La foto que mejor te define",
+    specialPhotoTitle: "Una foto que no podía faltar",
     specialPhotoPlaceholder: "[FOTO ESPECIAL DE PAULA]",
-    specialPhotoCaption: "Esta fotografía captura exactamente quién eres.",
+    specialPhotoCaption: "Gracias por hacerme tan feliz.",
     specialPhoto: "./images/letter/especial.jpeg",
     
     // Sobre y Carta
-    envelopeTitle: "Hay algo que quiero decirte hoy.",
+    envelopeTitle: "Monamor",
     openButtonText: "ABRIR CARTA",
-    letterGreeting: "Querida Paula,",
+    letterGreeting: "Monamor,",
     letterBody: [
-      "[Párrafo 1: Feliz cumpleaños. Hoy celebramos tu vida, tu risa y todo lo increíble que traes a este mundo.]",
-      "[Párrafo 2: Admiro la mujer en la que te has convertido, lo mucho que te esfuerzas cada día y cada uno de tus sueños.]",
-      "[Párrafo 3: Que este nuevo año de vida venga lleno de éxitos, paz y momentos que te hagan sonreír cada día.]"
+      "Feliz cumpleaños, mi amor. No sé qué vaya a pasar hoy o qué nos espera a futuro, pero lo único que tengo claro es que quiero pasarlo contigo. Quizás sea un deseo egoísta o tonto, pero no quiero alejarme de quien me hace el hombre más afortunado del mundo.",
+      "Ya son 20, estás grande jajaja. No le des mucha cabeza al tema, honey, todavía te queda toda una vida por delante para ser y lograr cosas increíbles. Agradezco a Dios, la casualidad, el destino, el mundo o lo que sea que te trajo aquí y me permitió conocerte. Te amo más cada día y espero seguir haciéndote sonreír el resto de la vida."
     ],
     letterSignature: "Con todo mi cariño y admiración,",
     author: "Kovyn",

@@ -115,7 +115,9 @@ export default function Screen06Quiz({ onNext, onBack }) {
           {isAnswered && (
             <div className={`quiz-feedback-box ${isCorrect ? 'correct' : 'incorrect'}`}>
               <p className="feedback-message">
-                {isCorrect ? currentQ.successMessage : currentQ.failMessage}
+                {isCorrect 
+                  ? currentQ.successMessage 
+                  : ((currentQ.failMessages && currentQ.failMessages[selectedOption]) || currentQ.failMessage || "Casi... pero estuviste muy cerca.")}
               </p>
 
               <button 
