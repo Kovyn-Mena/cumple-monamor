@@ -57,18 +57,18 @@ export const experienceData = {
       {
         id: 2,
         step: "02",
-        title: "Aquel Día Especial",
-        date: "[FECHA DEL RECUERDO]",
-        description: "[Aquí irá la anécdota o ese momento donde supimos que esto era único.]",
+        title: "¿Flores?",
+        date: "7 de marzo del 2026",
+        description: "¿Un regalo, o significaba algo más?",
         imagePlaceholder: "[Foto de aquel día]",
         image: "./images/timeline/02.jpeg"
       },
       {
         id: 3,
         step: "03",
-        title: "Un Viaje / Aventura",
-        date: "[FECHA DEL VIAJE]",
-        description: "[Aquí irá la historia de una escapada, salida o noche inolvidable.]",
+        title: "¿Coffee party?",
+        date: "18 de marzo del 2026",
+        description: "¿Recuerdas qué pasó ese día?",
         imagePlaceholder: "[Foto de la aventura]",
         image: "./images/timeline/03.jpeg"
       }
